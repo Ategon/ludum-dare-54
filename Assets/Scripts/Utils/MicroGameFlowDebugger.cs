@@ -6,6 +6,7 @@ namespace Auboreal {
 	public class MicroGameFlowDebugger : MonoBehaviour {
 
 		private int m_SelectedGameIndex = 0;
+		private bool m_ShowDebugGUI = false;
 
 		private void Start() {
 			EventManager.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
@@ -15,9 +16,15 @@ namespace Auboreal {
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				EventManager.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
 			}
+
+			if (Input.GetKeyDown(KeyCode.D)) {
+				m_ShowDebugGUI = !m_ShowDebugGUI;
+			}
 		}
 
 		private void OnGUI() {
+			if (!m_ShowDebugGUI) return;
+
 			GUILayout.BeginArea(new Rect(10, 10, 250, 400));
 			GUILayout.Label("Select a MicroGame:");
 
