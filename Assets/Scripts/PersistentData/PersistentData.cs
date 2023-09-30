@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,8 @@ public class PersistentData : MonoBehaviour {
 	private int score = 0;
 	private int health = 0;
 
+	private MicroGame m_currentMicroGame;
+
 	public int Score {
 		get => score;
 		set {
@@ -55,9 +58,32 @@ public class PersistentData : MonoBehaviour {
 		health = maxHealth;
 	}
 
-	public void SwitchScene(string sceneName, LoadSceneMode loadSceneMode) {
-		SceneManager.LoadScene(sceneName, loadSceneMode);
+	public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode) 
+	{
+		Debug.Log($"Switch scene {microGame.sceneName}");
+
+		if (m_currentMicroGame != null) 
+		{
+			var unloadOp = SceneManager.UnloadSceneAsync(m_currentMicroGame.sceneName);
+			unloadOp.completed += (op) => LoadNewScene(microGame, loadSceneMode);
+		} 
+		else 
+		{
+			LoadNewScene(microGame, loadSceneMode);
+		}
 	}
+
+	private void LoadNewScene(MicroGame microGame, LoadSceneMode loadSceneMode) 
+	{
+		if (microGame == null) 
+		{
+			Debug.LogError("MicroGame is null in LoadNewScene.");
+			return;
+		}
+		m_currentMicroGame = microGame;
+		SceneManager.LoadSceneAsync(microGame.sceneName, loadSceneMode);
+	}
+
 
 	[System.Serializable]
 	public class MicroGame {
@@ -86,6 +112,12 @@ public class PersistentData : MonoBehaviour {
 		Repair = 7,
 		FuelUp = 8
 
+	}
+	
+	public MicroGame GetRandomMicroGame() {
+		var microGames = microgames;
+		var microGameIndex = UnityEngine.Random.Range(0, microGames.Length);
+		return microGames[microGameIndex];
 	}
 
 }
