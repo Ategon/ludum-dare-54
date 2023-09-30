@@ -16,11 +16,11 @@ namespace Auboreal {
 
 
 		private void OnEnable() {
-			ActionEventSystem.Instance.OnMicroGameLoaded.AddListener(StartMicroGame);
+			EventManager.OnMicroGameSelected += StartMicroGame;
 		}
 
 		private void OnDisable() {
-			ActionEventSystem.Instance.OnMicroGameLoaded.RemoveListener(StartMicroGame);
+			EventManager.OnMicroGameSelected -= StartMicroGame;
 		}
 
 		public void StartMicroGame(PersistentData.MicroGame newMicroGame) {

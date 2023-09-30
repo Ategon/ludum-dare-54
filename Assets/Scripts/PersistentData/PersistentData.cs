@@ -5,13 +5,6 @@ namespace Auboreal {
 
 	public class PersistentData : Singleton<PersistentData> {
 
-		public delegate void OnHealthChanged(float amount);
-
-		public delegate void OnScoreChanged(float amount);
-
-		public event OnHealthChanged HealthChanged;
-		public event OnScoreChanged ScoreChanged;
-
 		[Header("Objects")]
 		public MicroGame[] microgames;
 
@@ -30,7 +23,7 @@ namespace Auboreal {
 			get => score;
 			set {
 				score = value;
-				ScoreChanged?.Invoke(value);
+				EventManager.ScoreChanged(value);
 			}
 		}
 
@@ -38,7 +31,7 @@ namespace Auboreal {
 			get => health;
 			set {
 				health = value;
-				HealthChanged?.Invoke(value);
+				EventManager.HealthChanged(value);
 			}
 		}
 
