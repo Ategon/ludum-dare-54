@@ -21,8 +21,13 @@ namespace Auboreal {
 			OnGameEnded();
 		}
 
-		protected abstract void OnGameStarted();
-		protected abstract void OnGameEnded();
+		protected virtual void OnGameStarted() {
+			EventManager.GameFlow.GameStarted(this.MicroGameInstance);
+		}
+
+		protected virtual void OnGameEnded() {
+			EventManager.GameFlow.GameEnded(this.MicroGameInstance);
+		}
 
 	}
 

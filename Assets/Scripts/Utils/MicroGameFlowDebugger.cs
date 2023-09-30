@@ -8,11 +8,6 @@ namespace Auboreal {
 		private int m_SelectedGameIndex = 0;
 		private bool m_ShowDebugGUI = false;
 
-		// TODO(Ayoub): Move the entry point away from the debugger
-		private void Start() {
-			EventManager.Debug.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
-		}
-
 		private void Update() {
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				EventManager.Debug.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());

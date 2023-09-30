@@ -2,11 +2,27 @@ namespace Auboreal {
 
 	public static class EventManager {
 
+		public static class GameFlow {
+
+			public delegate void GameStartedDelegate(PersistentData.MicroGame microGame);
+			public delegate void GameEndedDelegate(PersistentData.MicroGame microGame);
+			public static event GameStartedDelegate OnGameStarted;
+			public static event GameEndedDelegate OnGameEnded;
+			
+			public static void GameStarted(PersistentData.MicroGame microGame) {
+				OnGameStarted?.Invoke(microGame);
+			}
+			
+			public static void GameEnded(PersistentData.MicroGame microGame) {
+				UnityEngine.Debug.Log($"GameEnded - EventManager");
+				OnGameEnded?.Invoke(microGame);
+			}
+		}
+
 		// TODO(Ayoub): Separate events context even further?
 		public static class Gameplay {
 
 			public delegate void HealthChangedDelegate(float amount);
-
 			public delegate void ScoreChangedDelegate(float amount);
 
 			public static event HealthChangedDelegate OnHealthChanged;
@@ -18,6 +34,18 @@ namespace Auboreal {
 
 			public static void ScoreChanged(float amount) {
 				OnScoreChanged?.Invoke(amount);
+			}
+
+		}
+
+		public static class Input {
+
+			public delegate void AnyInputPressedDelegate();
+
+			public static event AnyInputPressedDelegate OnAnyInputPressed;
+
+			public static void AnyInputPressed() {
+				OnAnyInputPressed?.Invoke();
 			}
 
 		}

@@ -10,15 +10,22 @@ namespace Auboreal {
 		public float Restart { get; private set; }
 
 		public void OnInput(InputAction.CallbackContext context) {
-			Input = context.ReadValue<Vector2>();
+			if (context.performed) {
+				this.Input = context.ReadValue<Vector2>();
+				EventManager.Input.AnyInputPressed();
+			}
 		}
 
 		public void OnPause(InputAction.CallbackContext context) {
-			Pause = context.ReadValue<float>();
+			if (context.performed) {
+				this.Pause = context.ReadValue<float>();
+			}
 		}
 
 		public void OnRestart(InputAction.CallbackContext context) {
-			Restart = context.ReadValue<float>();
+			if (context.performed) {
+				this.Restart = context.ReadValue<float>();
+			}
 		}
 
 	}
