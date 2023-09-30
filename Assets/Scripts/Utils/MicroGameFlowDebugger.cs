@@ -5,13 +5,13 @@ namespace Auboreal {
 	public class MicroGameFlowDebugger : MonoBehaviour {
 
 		private void Start() {
-			ActionEventSystem.OnMicroGameLoaded?.Invoke(PersistentData.instance.GetRandomMicroGame());
+			ActionEventSystem.Instance.OnMicroGameLoaded?.Invoke(PersistentData.Instance.GetRandomMicroGame());
 		}
 
 		private void Update() {
 			if (Input.GetKeyDown(KeyCode.Space)) {
-				ActionEventSystem.OnMicroGameLoaded?
-					.Invoke(PersistentData.instance.GetRandomMicroGame());
+				ActionEventSystem.Instance.OnMicroGameLoaded?
+					.Invoke(PersistentData.Instance.GetRandomMicroGame());
 			}
 		}
 

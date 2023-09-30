@@ -1,11 +1,16 @@
 namespace Auboreal {
+	using UnityEngine.Events;
 
-	using System;
+	public class ActionEventSystem : Singleton<ActionEventSystem> {
 
-	public class ActionEventSystem {
+		[System.Serializable]
+		public class MicroGameEvent : UnityEvent<PersistentData.MicroGame> { }
 
-		public static Action<PersistentData.MicroGame> OnMicroGameLoaded;
+		public MicroGameEvent OnMicroGameLoaded;
 
+		protected override void Awake() {
+			base.Awake();
+			OnMicroGameLoaded ??= new MicroGameEvent();
+		}
 	}
-
 }
