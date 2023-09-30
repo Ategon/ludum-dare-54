@@ -48,48 +48,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   microgames:
   - name: Wait
+    gameType: 0
     instructions: Don't do anything
-    sceneName: 
+    sceneName: Wait
     disabled: 1
     dead: 0
   - name: Defend
+    gameType: 1
     instructions: 
-    sceneName: 
+    sceneName: Defense
     disabled: 1
     dead: 0
   - name: Orbit
+    gameType: 2
     instructions: 
-    sceneName: 
+    sceneName: Orbit
     disabled: 1
     dead: 0
   - name: Mash
+    gameType: 3
     instructions: 
-    sceneName: 
+    sceneName: Mash
     disabled: 1
     dead: 0
   - name: Shoot
+    gameType: 4
     instructions: 
-    sceneName: 
+    sceneName: Shoot
     disabled: 1
     dead: 0
   - name: Count
+    gameType: 5
     instructions: 
-    sceneName: 
+    sceneName: Count
     disabled: 1
     dead: 0
   - name: Land
+    gameType: 6
     instructions: 
-    sceneName: 
+    sceneName: Land
     disabled: 1
     dead: 0
   - name: Repair
+    gameType: 7
     instructions: 
-    sceneName: 
+    sceneName: Repair
     disabled: 1
     dead: 0
   - name: Fuel Up
+    gameType: 8
     instructions: 
-    sceneName: 
+    sceneName: FuelUp
     disabled: 1
     dead: 0
   maxHealth: 3

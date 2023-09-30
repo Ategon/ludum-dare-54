@@ -55,8 +55,8 @@ public class PersistentData : MonoBehaviour {
 		health = maxHealth;
 	}
 
-	public void SwitchScene(string sceneName) {
-		SceneManager.LoadScene(sceneName);
+	public void SwitchScene(string sceneName, LoadSceneMode loadSceneMode) {
+		SceneManager.LoadScene(sceneName, loadSceneMode);
 	}
 
 	[System.Serializable]
