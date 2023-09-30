@@ -54,8 +54,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093079013681429480, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
       propertyPath: m_Name
-      value: EntryPoint
+      value: '[Repair]EntryPoint'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+--- !u!1 &7056033512626069818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3093079013681429480, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 5404534927266306770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4866039958052251264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056033512626069818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04e1333e823f9c4f9d371a6d6678603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

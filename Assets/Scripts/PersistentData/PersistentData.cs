@@ -41,8 +41,6 @@ namespace Auboreal {
 		}
 
 		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode) {
-			Debug.Log($"Switch scene {microGame.sceneName}");
-
 			if (m_currentMicroGame != null) {
 				var unloadOp = SceneManager.UnloadSceneAsync(m_currentMicroGame.sceneName);
 				unloadOp.completed += (op) => LoadNewScene(microGame, loadSceneMode);
@@ -59,7 +57,19 @@ namespace Auboreal {
 			}
 
 			m_currentMicroGame = microGame;
+			SceneManager.sceneLoaded += OnMicroGameSceneLoaded;
 			SceneManager.LoadSceneAsync(microGame.sceneName, loadSceneMode);
+		}
+
+		private void OnMicroGameSceneLoaded(Scene microGameScene, LoadSceneMode sceneMode) {
+			SceneManager.sceneLoaded -= OnMicroGameSceneLoaded;
+			
+			var controller = FindObjectOfType<AMicroGameController>();
+			if (controller != null) {
+				controller.Initialize(m_currentMicroGame);
+			} else {
+				Debug.LogError($"No MicroGameController found in scene: {microGameScene.name}");
+			}
 		}
 
 

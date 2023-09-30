@@ -6,7 +6,7 @@ namespace Auboreal {
 
 		private PersistentData.MicroGame MicroGameInstance { get; set; }
 
-		protected virtual void Initialize (PersistentData.MicroGame microGameInstance) {
+		public virtual void Initialize (PersistentData.MicroGame microGameInstance) {
 			this.MicroGameInstance = microGameInstance;
 			StartMicroGame();
 		}
