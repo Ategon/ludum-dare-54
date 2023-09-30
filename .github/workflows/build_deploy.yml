@@ -9,29 +9,46 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        unityVersion:
+          - 2022.1.7f1
+        targetPlatform:
+          - WebGL
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Cache Library
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-${{ matrix.unityVersion }}-${{ github.sha }}
+          restore-keys: Library-${{ matrix.unityVersion }}
+
       - name: Setup Unity
-        uses: webbertakken/unity-builder@v2
+        uses: game-ci/unity-setup@v2
         with:
-          unity-version: '2022.1.7f1'
-      
+          unityVersion: ${{ matrix.unityVersion }}
+
       - name: Activate Unity License
-        uses: webbertakken/unity-activate@v2
+        uses: game-ci/unity-activate@v2
         with:
-          unityVersion: '2022.1.7f1'
+          unityVersion: ${{ matrix.unityVersion }}
+          personalLicenseFile: ${{ secrets.UNITY_LICENSE }}
 
       - name: Build
-        uses: webbertakken/unity-builder@v2
+        uses: game-ci/unity-builder@v2
         with:
-          unity-version: '2022.1.7f1'
-          targetPlatform: 'WebGL'
+          projectPath: .  
+          unityVersion: ${{ matrix.unityVersion }}
+          targetPlatform: ${{ matrix.targetPlatform }}
+          buildsPath: build
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: Build
-          path: build/WebGL
+          path: build/${{ matrix.targetPlatform }}
