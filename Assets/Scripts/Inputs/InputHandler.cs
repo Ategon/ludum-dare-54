@@ -11,7 +11,6 @@ public class InputHandler : MonoBehaviour
 
     public void OnInput(InputAction.CallbackContext context)
     {
-        Debug.Log(context.ReadValue<Vector2>());
         Input = context.ReadValue<Vector2>();
     }
 
