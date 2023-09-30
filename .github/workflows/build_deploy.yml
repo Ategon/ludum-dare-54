@@ -1,54 +1,36 @@
 ﻿name: Build and Deploy
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+on: [workflow_dispatch, push, pull_request]
 
 jobs:
   build:
+    name: Build my project
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        unityVersion:
-          - 2022.1.7f1
-        targetPlatform:
-          - WebGL
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          lfs: true
 
-      - name: Cache Library
-        uses: actions/cache@v2
+      # Cache
+      - uses: actions/cache@v3
         with:
           path: Library
-          key: Library-${{ matrix.unityVersion }}-${{ github.sha }}
-          restore-keys: Library-${{ matrix.unityVersion }}
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
 
-      - name: Setup Unity
-        uses: game-ci/unity-setup@v2
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v3
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
-          unityVersion: ${{ matrix.unityVersion }}
+          targetPlatform: WebGL
 
-      - name: Activate Unity License
-        uses: game-ci/unity-activate@v2
-        with:
-          unityVersion: ${{ matrix.unityVersion }}
-          personalLicenseFile: ${{ secrets.UNITY_LICENSE }}
-
-      - name: Build
-        uses: game-ci/unity-builder@v2
-        with:
-          projectPath: .  
-          unityVersion: ${{ matrix.unityVersion }}
-          targetPlatform: ${{ matrix.targetPlatform }}
-          buildsPath: build
-
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+      # Output
+      - uses: actions/upload-artifact@v3
         with:
           name: Build
-          path: build/${{ matrix.targetPlatform }}
+          path: build
