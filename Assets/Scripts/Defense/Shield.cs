@@ -16,6 +16,7 @@ public class Shield : MonoBehaviour
         if (inputs.Input.x > 0)
         {
             transform.position = new Vector3(0.25f, 0, 0);
+            transform.rotation = new Vector3(0, 0, 90);
         }
         else if (inputs.Input.x < 0)
         {
