@@ -31,6 +31,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "[Debug]ShowDebug",
+                    "type": "Button",
+                    "id": "20facff1-f691-45e4-b86c-ec1efad0633f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "[Debug]GoNextMicroGame",
+                    "type": "Button",
+                    "id": "b5e00079-452e-49e9-82f8-5efc9d751501",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -350,6 +368,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b336a2be-23a2-46e9-bb7b-d989f65ccfcc",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "[Debug]ShowDebug",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fdce755d-695b-4b0d-b367-dad07e339307",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "[Debug]GoNextMicroGame",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

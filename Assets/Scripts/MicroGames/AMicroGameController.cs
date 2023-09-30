@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace Auboreal {
 
 	using UnityEngine;

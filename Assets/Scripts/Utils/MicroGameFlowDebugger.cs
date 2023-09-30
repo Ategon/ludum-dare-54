@@ -8,14 +8,22 @@ namespace Auboreal {
 		private int m_SelectedGameIndex = 0;
 		private bool m_ShowDebugGUI = false;
 
-		private void Update() {
-			if (Input.GetKeyDown(KeyCode.Space)) {
-				EventManager.Debug.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
-			}
+		private void OnEnable() {
+			EventManager.Debug.OnShowDebugToggled += OnShowDebugToggle;
+			EventManager.Debug.OnTriggerNextMicroGame += OnTriggerNextMicroGame;
+		}
 
-			if (Input.GetKeyDown(KeyCode.D)) {
-				m_ShowDebugGUI = !m_ShowDebugGUI;
-			}
+		private void OnDisable() {
+			EventManager.Debug.OnShowDebugToggled -= OnShowDebugToggle;
+			EventManager.Debug.OnTriggerNextMicroGame -= OnTriggerNextMicroGame;
+		}
+
+		private void OnTriggerNextMicroGame() {
+			EventManager.Debug.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
+		}
+
+		private void OnShowDebugToggle() {
+			m_ShowDebugGUI = !m_ShowDebugGUI;
 		}
 
 		private void OnGUI() {
