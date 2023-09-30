@@ -1,5 +1,6 @@
 namespace Auboreal {
 
+	using UnityEngine.SceneManagement;
 	using UnityEngine;
 
 	public class MicroGameFlowManager : MonoBehaviour {
@@ -19,6 +20,7 @@ namespace Auboreal {
 		private void StartRandomMicroGame() {
 			var randomMicroGame = GetRandomMicroGame();
 			m_CurrentMicroGameController = MicroGameFactory.CreateMicroGameController(randomMicroGame);
+			PersistentData.instance.SwitchScene(randomMicroGame.sceneName, LoadSceneMode.Additive);
 		}
 
 
