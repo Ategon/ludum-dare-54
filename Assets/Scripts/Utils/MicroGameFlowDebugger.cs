@@ -9,12 +9,12 @@ namespace Auboreal {
 		private bool m_ShowDebugGUI = false;
 
 		private void Start() {
-			EventManager.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
+			EventManager.Debug.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
 		}
 
 		private void Update() {
 			if (Input.GetKeyDown(KeyCode.Space)) {
-				EventManager.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
+				EventManager.Debug.MicroGameSelected(PersistentData.Instance.GetRandomMicroGame());
 			}
 
 			if (Input.GetKeyDown(KeyCode.D)) {
@@ -33,7 +33,7 @@ namespace Auboreal {
 					PersistentData.Instance.microgames.Select(mg => mg.name).ToArray(), 1);
 
 			if (GUILayout.Button("Load Selected MicroGame")) {
-				EventManager.MicroGameSelected(PersistentData.Instance.microgames[m_SelectedGameIndex]);
+				EventManager.Debug.MicroGameSelected(PersistentData.Instance.microgames[m_SelectedGameIndex]);
 			}
 
 			GUILayout.EndArea();

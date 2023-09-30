@@ -1,26 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.InputSystem;
+namespace Auboreal {
 
-public class InputHandler : MonoBehaviour
-{
-    public Vector2 Input { get; private set; }
-    public float Pause { get; private set; }
-    public float Restart { get; private set; }
+	using UnityEngine;
+	using UnityEngine.InputSystem;
 
-    public void OnInput(InputAction.CallbackContext context)
-    {
-        Input = context.ReadValue<Vector2>();
-    }
+	public class InputHandler : MonoBehaviour {
 
-    public void OnPause(InputAction.CallbackContext context)
-    {
-        Pause = context.ReadValue<float>();
-    }
+		public Vector2 Input { get; private set; }
+		public float Pause { get; private set; }
+		public float Restart { get; private set; }
 
-    public void OnRestart(InputAction.CallbackContext context)
-    {
-        Restart = context.ReadValue<float>();
-    }
+		public void OnInput(InputAction.CallbackContext context) {
+			Input = context.ReadValue<Vector2>();
+		}
+
+		public void OnPause(InputAction.CallbackContext context) {
+			Pause = context.ReadValue<float>();
+		}
+
+		public void OnRestart(InputAction.CallbackContext context) {
+			Restart = context.ReadValue<float>();
+		}
+
+	}
+
 }

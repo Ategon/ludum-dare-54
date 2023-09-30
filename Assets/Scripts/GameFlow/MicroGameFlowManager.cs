@@ -6,11 +6,11 @@ namespace Auboreal {
 	public class MicroGameFlowManager : MonoBehaviour {
 
 		private void OnEnable() {
-			EventManager.OnMicroGameSelected += StartMicroGame;
+			EventManager.Debug.OnMicroGameSelected += StartMicroGame;
 		}
 
 		private void OnDisable() {
-			EventManager.OnMicroGameSelected -= StartMicroGame;
+			EventManager.Debug.OnMicroGameSelected -= StartMicroGame;
 		}
 
 		public void StartMicroGame(PersistentData.MicroGame newMicroGame) {

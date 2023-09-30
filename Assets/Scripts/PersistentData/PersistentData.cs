@@ -23,7 +23,7 @@ namespace Auboreal {
 			get => score;
 			set {
 				score = value;
-				EventManager.ScoreChanged(value);
+				EventManager.Gameplay.ScoreChanged(value);
 			}
 		}
 
@@ -31,7 +31,7 @@ namespace Auboreal {
 			get => health;
 			set {
 				health = value;
-				EventManager.HealthChanged(value);
+				EventManager.Gameplay.HealthChanged(value);
 			}
 		}
 
