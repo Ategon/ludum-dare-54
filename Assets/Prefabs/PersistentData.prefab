@@ -215,6 +215,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2eb599dc-e5ad-4fa8-9821-ff704548c0d5
     m_ActionName: Player/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8843538335601123564}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: GoNextMicroGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 98523645-1e4a-4ed6-83f1-42589a2be2e6
+    m_ActionName: Player/GoNextMicroGame[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -232,3 +248,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229c1e1e2801c5642a14603ec9b74029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnMicroGameLoadedEvent: {fileID: 11400000, guid: 81896c4e1f2a00e4f8fc1054e2ffa8e0, type: 2}

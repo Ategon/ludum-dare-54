@@ -35,4 +35,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FuelUp.unity
     guid: 3d11fc02d4dd11f459cbfa31f4ec2fab
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 7eb1846f6b2be164cbb205a27ed30d1d, type: 2}

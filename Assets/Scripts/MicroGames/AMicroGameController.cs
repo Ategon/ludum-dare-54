@@ -2,11 +2,11 @@ namespace Auboreal {
 
 	using UnityEngine;
 
-	public abstract class AMicroGameController : IMicroGameFlow {
+	public abstract class AMicroGameController : MonoBehaviour, IMicroGameFlow {
 
 		private PersistentData.MicroGame MicroGameInstance { get; set; }
 
-		protected AMicroGameController(PersistentData.MicroGame microGameInstance) {
+		protected virtual void Initialize (PersistentData.MicroGame microGameInstance) {
 			this.MicroGameInstance = microGameInstance;
 			StartMicroGame();
 		}
