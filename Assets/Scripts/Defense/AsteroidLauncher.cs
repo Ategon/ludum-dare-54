@@ -36,6 +36,7 @@ public class AsteroidLauncher : MonoBehaviour
                 );
 
             GameObject summonedAsteroid = Instantiate(asteroid, position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(position.y, position.x) - 90));
+            summonedAsteroid.transform.SetParent(transform);
 
             summonedAsteroid.transform.DOMove(new Vector3(0, 0, 0), 5f);
         }
