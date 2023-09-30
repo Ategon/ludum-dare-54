@@ -5,16 +5,6 @@ namespace Auboreal {
 
 	public class MicroGameFlowManager : MonoBehaviour {
 
-		#region Unity Methods
-
-		// private void Start() {
-		// 	var randomMicroGame = GetRandomMicroGame();
-		// 	StartMicroGame(randomMicroGame);
-		// }
-
-		#endregion
-
-
 		private void OnEnable() {
 			EventManager.OnMicroGameSelected += StartMicroGame;
 		}
