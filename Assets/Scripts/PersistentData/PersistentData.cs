@@ -40,6 +40,7 @@ namespace Auboreal {
 			health = maxHealth;
 		}
 
+		// TODO(Ayoub): Separate scene management from persistent data
 		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode) {
 			if (m_currentMicroGame != null) {
 				var unloadOp = SceneManager.UnloadSceneAsync(m_currentMicroGame.sceneName);

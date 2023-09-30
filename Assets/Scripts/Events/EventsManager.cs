@@ -2,6 +2,7 @@ namespace Auboreal {
 
 	public static class EventManager {
 
+		// TODO(Ayoub): Separate events context even further?
 		public static class Gameplay {
 
 			public delegate void HealthChangedDelegate(float amount);
