@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9b5905d591bb03f47a451f918c2f792e
+guid: 6823c470b7f239f44a9b0696153be4dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: defense_meteor_0
+      name: explosion_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 68
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6b120b2cc921214d80a2b7f37524ffc
-      internalID: -1751504591
+      spriteID: 748ddda246ce4df478903207606b3893
+      internalID: 116195554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: defense_meteor_1
+      name: explosion_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 68
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4b44fbb53d16754cb2a5f4abde1fbc5
-      internalID: -1038349503
+      spriteID: febeb0cce58ce3d49a3a0b6af0c2bf1d
+      internalID: -2094254529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b93685eda660224ea70cbf5f74fce4d
+      internalID: 1415125370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: explosion_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0c1b702881b65648a5b9796a2ed13b8
+      internalID: -907219203
       vertices: []
       indices: 
       edges: []
@@ -170,8 +212,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      defense_meteor_0: -1751504591
-      defense_meteor_1: -1038349503
+      explosion_2: 1415125370
+      explosion_0: 116195554
+      explosion_1: -2094254529
+      explosion_3: -907219203
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
