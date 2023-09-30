@@ -1,0 +1,32 @@
+﻿name: Build and Deploy
+
+on:
+  workflow_dispatch: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup Unity
+        uses: webbertakken/unity-builder@v2
+        with:
+          unity-version: '2022.1.7f1'
+
+      - name: Build
+        uses: webbertakken/unity-builder@v2
+        with:
+          unity-version: '2022.1.7f1'
+          targetPlatform: 'WebGL'
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: build/WebGL
