@@ -1,5 +1,8 @@
+using System.Linq;
+
 namespace Auboreal {
 
+	using System.Collections.Generic;
 	using UnityEngine;
 	using UnityEngine.SceneManagement;
 
@@ -18,6 +21,7 @@ namespace Auboreal {
 		private int health = 0;
 
 		private MicroGame m_currentMicroGame;
+		private List<MicroGame> _generatedMicroGames = new();
 
 		public int Score {
 			get => score;
@@ -64,11 +68,13 @@ namespace Auboreal {
 
 		private void OnMicroGameSceneLoaded(Scene microGameScene, LoadSceneMode sceneMode) {
 			SceneManager.sceneLoaded -= OnMicroGameSceneLoaded;
-			
+
 			var controller = FindObjectOfType<AMicroGameController>();
+
 			if (controller != null) {
 				controller.Initialize(m_currentMicroGame);
-			} else {
+			}
+			else {
 				Debug.LogError($"No MicroGameController found in scene: {microGameScene.name}");
 			}
 		}
@@ -106,8 +112,15 @@ namespace Auboreal {
 
 		public MicroGame GetRandomMicroGame() {
 			var microGames = microgames;
-			var microGameIndex = UnityEngine.Random.Range(0, microGames.Length);
-			return microGames[microGameIndex];
+			var toRandomFromMicroGames = microGames.Except(_generatedMicroGames).ToArray();
+
+			if (toRandomFromMicroGames.Length <= 0) {
+				_generatedMicroGames.Clear();
+				toRandomFromMicroGames = microGames;
+			}
+			var microGameIndex = UnityEngine.Random.Range(0, toRandomFromMicroGames.Length);
+			_generatedMicroGames.Add(toRandomFromMicroGames[microGameIndex]);
+			return toRandomFromMicroGames[microGameIndex];
 		}
 
 	}

@@ -24,7 +24,6 @@ namespace Auboreal {
 		}
 
 		private void EndCurrentMicroGame(PersistentData.MicroGame microgame) {
-			Debug.Log("END");
 			StartMicroGame(PersistentData.Instance.GetRandomMicroGame());
 		}
 
