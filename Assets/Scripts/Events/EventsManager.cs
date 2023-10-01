@@ -72,6 +72,10 @@ namespace Auboreal {
 				OnAnyInputPressed?.Invoke();
 			}
 
+			public static void CleanInputs() {
+				OnAnyInputPressed = null;
+			}
+
 		}
 
 		public static class Debug {
