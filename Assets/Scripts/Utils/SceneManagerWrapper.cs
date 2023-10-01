@@ -8,6 +8,10 @@
 		private PersistentData.MicroGame m_CurrentMicroGame;
 
 		public void SwitchScene(PersistentData.MicroGame microGame, LoadSceneMode loadSceneMode) {
+			if (microGame == null) {
+				Debug.LogError("Micro Game passed to switch scene is null");
+			}
+
 			if (m_CurrentMicroGame != null) {
 				var unloadOp = SceneManager.UnloadSceneAsync(m_CurrentMicroGame.sceneName);
 				unloadOp.completed += (op) => LoadNewScene(microGame, loadSceneMode);
@@ -40,5 +44,7 @@
 				Debug.LogError($"No MicroGameController found in scene: {microGameScene.name}");
 			}
 		}
+
 	}
+
 }
