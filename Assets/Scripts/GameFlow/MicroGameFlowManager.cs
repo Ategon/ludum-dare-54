@@ -4,14 +4,6 @@ namespace Auboreal {
 	using UnityEngine;
 
 	public class MicroGameFlowManager : MonoBehaviour {
-
-		/// <summary>
-		/// Entry point
-		/// </summary>
-		private void Start() {
-			StartMicroGame(PersistentData.Instance.GetRandomMicroGame());
-		}
-
 		private void OnEnable() {
 			EventManager.Global.OnRequestNextMicroGame += OnRequestMicroGame;
 		}
