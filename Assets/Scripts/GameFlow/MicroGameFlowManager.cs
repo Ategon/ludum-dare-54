@@ -14,12 +14,10 @@ namespace Auboreal {
 
 		private void OnEnable() {
 			EventManager.Global.OnRequestNextMicroGame += OnRequestMicroGame;
-			EventManager.Debug.OnMicroGameSelected += StartMicroGame;
 		}
 
 		private void OnDisable() {
 			EventManager.Global.OnRequestNextMicroGame -= OnRequestMicroGame;
-			EventManager.Debug.OnMicroGameSelected -= StartMicroGame;
 		}
 
 		public void StartMicroGame(PersistentData.MicroGame newMicroGame) {

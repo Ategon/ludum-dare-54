@@ -76,28 +76,12 @@ namespace Auboreal {
 
 		public static class Debug {
 
-			public delegate void ShowDebugDelegate();
-
-			public static event ShowDebugDelegate OnShowDebugToggled;
-
-			public static void ShowDebugToggled() {
-				OnShowDebugToggled?.Invoke();
-			}
-
 			public delegate void TriggerNextMicroGameDelegate();
 
 			public static event TriggerNextMicroGameDelegate OnTriggerNextMicroGame;
 
 			public static void TriggerNextMicroGame() {
 				OnTriggerNextMicroGame?.Invoke();
-			}
-
-			public delegate void MicroGameSelectedDelegate(PersistentData.MicroGame selectedGame);
-
-			public static event MicroGameSelectedDelegate OnMicroGameSelected;
-
-			public static void MicroGameSelected(PersistentData.MicroGame selectedGame) {
-				OnMicroGameSelected?.Invoke(selectedGame);
 			}
 
 		}
