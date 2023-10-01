@@ -16,10 +16,7 @@ namespace Auboreal {
 	[Serializable]
 	public class SpaceShipParts {
 
-		public SpaceShipPart Part1;
-		public SpaceShipPart Part2;
-		public SpaceShipPart Part3;
-		public SpaceShipPart Part4;
+		public SpaceShipPart[] Parts;
 
 	}
 
