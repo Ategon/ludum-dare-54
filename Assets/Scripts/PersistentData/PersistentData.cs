@@ -45,6 +45,7 @@ namespace Auboreal {
 
 		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode) {
 			m_SceneManagerWrapper.SwitchScene(microGame, loadSceneMode);
+			Score += 1;
 		}
 
 		[System.Serializable]
