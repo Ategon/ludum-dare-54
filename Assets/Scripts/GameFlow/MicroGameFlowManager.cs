@@ -5,25 +5,29 @@ namespace Auboreal {
 
 	public class MicroGameFlowManager : MonoBehaviour {
 
+		/// <summary>
+		/// Entry point
+		/// </summary>
 		private void Start() {
 			StartMicroGame(PersistentData.Instance.GetRandomMicroGame());
-		}
-		
-		private void OnEnable() {
-			EventManager.GameFlow.OnGameEnded += EndCurrentMicroGame;
-			EventManager.Debug.OnMicroGameSelected += StartMicroGame;
-		}
-
-		private void OnDisable() {
-			EventManager.GameFlow.OnGameEnded -= EndCurrentMicroGame;
-			EventManager.Debug.OnMicroGameSelected -= StartMicroGame;
 		}
 
 		public void StartMicroGame(PersistentData.MicroGame newMicroGame) {
 			PersistentData.Instance.SwitchScene(newMicroGame, LoadSceneMode.Additive);
 		}
 
-		private void EndCurrentMicroGame(PersistentData.MicroGame microgame) {
+		private void OnEnable() {
+			EventManager.Global.OnRequestNextMicroGame += OnRequestMicroGame;
+			EventManager.Debug.OnMicroGameSelected += StartMicroGame;
+		}
+
+		private void OnDisable() {
+			EventManager.Global.OnRequestNextMicroGame -= OnRequestMicroGame;
+			EventManager.Debug.OnMicroGameSelected -= StartMicroGame;
+		}
+
+
+		private void OnRequestMicroGame() {
 			StartMicroGame(PersistentData.Instance.GetRandomMicroGame());
 		}
 

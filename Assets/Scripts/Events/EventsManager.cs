@@ -2,27 +2,39 @@ namespace Auboreal {
 
 	public static class EventManager {
 
-		public static class GameFlow {
+		public static class Global {
 
-			public delegate void GameStartedDelegate(PersistentData.MicroGame microGame);
-			public delegate void GameEndedDelegate(PersistentData.MicroGame microGame);
-			public static event GameStartedDelegate OnGameStarted;
-			public static event GameEndedDelegate OnGameEnded;
-			
-			public static void GameStarted(PersistentData.MicroGame microGame) {
-				OnGameStarted?.Invoke(microGame);
+			public delegate void RequestNextMicroGameDelegate();
+
+			public static event RequestNextMicroGameDelegate OnRequestNextMicroGame;
+
+			public static void RequestNextMicroGame() {
+				OnRequestNextMicroGame?.Invoke();
 			}
-			
-			public static void GameEnded(PersistentData.MicroGame microGame) {
-				UnityEngine.Debug.Log($"GameEnded - EventManager");
-				OnGameEnded?.Invoke(microGame);
+
+			public delegate void MicroGameTimerStartDelegate(PersistentData.MicroGame microGame);
+
+			public static event MicroGameTimerStartDelegate OnMicroGameTimerStart;
+
+			public static void MicroGameTimerStart(PersistentData.MicroGame microGame) {
+				OnMicroGameTimerStart?.Invoke(microGame);
 			}
+
+			public delegate void MicroGameTimerOverDelegate(PersistentData.MicroGame microGame);
+
+			public static event MicroGameTimerOverDelegate OnMicroGameTimerOver;
+
+			public static void MicroGameTimerOver(PersistentData.MicroGame microGame) {
+				OnMicroGameTimerOver?.Invoke(microGame);
+			}
+
 		}
 
 		// TODO(Ayoub): Separate events context even further?
 		public static class Gameplay {
 
 			public delegate void HealthChangedDelegate(float amount);
+
 			public delegate void ScoreChangedDelegate(float amount);
 
 			public static event HealthChangedDelegate OnHealthChanged;
@@ -59,7 +71,7 @@ namespace Auboreal {
 			public static void ShowDebugToggled() {
 				OnShowDebugToggled?.Invoke();
 			}
-			
+
 			public delegate void TriggerNextMicroGameDelegate();
 
 			public static event TriggerNextMicroGameDelegate OnTriggerNextMicroGame;
@@ -67,7 +79,7 @@ namespace Auboreal {
 			public static void TriggerNextMicroGame() {
 				OnTriggerNextMicroGame?.Invoke();
 			}
-			
+
 			public delegate void MicroGameSelectedDelegate(PersistentData.MicroGame selectedGame);
 
 			public static event MicroGameSelectedDelegate OnMicroGameSelected;
