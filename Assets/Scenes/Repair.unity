@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4866039958052251264, guid: adbc045f1840eda4dbe247ed7ce1396b, type: 3}
+      propertyPath: repairSpaceShip
+      value: 
+      objectReference: {fileID: 539953087}
     - target: {fileID: 6647065187782181613, guid: adbc045f1840eda4dbe247ed7ce1396b, type: 3}
       propertyPath: m_RootOrder
       value: 0
