@@ -3,8 +3,8 @@ namespace Auboreal {
 	public class WaitMicroGameController : AMicroGameController {
 
 		protected override void OnGameStarted() {
-			base.OnGameStarted();
 			RegisterEvents();
+			base.OnGameStarted();
 		}
 
 		protected override void OnGameEnded() {

@@ -1,10 +1,9 @@
-using System.Linq;
-
 namespace Auboreal {
 
+	using System.Linq;
+	using UnityEngine.SceneManagement;
 	using System.Collections.Generic;
 	using UnityEngine;
-	using UnityEngine.SceneManagement;
 
 	public class PersistentData : Singleton<PersistentData> {
 
@@ -17,68 +16,36 @@ namespace Auboreal {
 		[Header("Values")]
 		private int currentMicrogame = -1;
 
-		private int score = 0;
-		private int health = 0;
+		private int m_Score = 0;
+		private int m_Health = 0;
 
-		private MicroGame m_currentMicroGame;
-		private List<MicroGame> _generatedMicroGames = new();
+		private readonly List<MicroGame> m_GeneratedMicroGames = new();
+		private readonly SceneManagerWrapper m_SceneManagerWrapper = new SceneManagerWrapper();
 
 		public int Score {
-			get => score;
+			get => m_Score;
 			set {
-				score = value;
+				m_Score = value;
 				EventManager.Gameplay.ScoreChanged(value);
 			}
 		}
 
 		public int Health {
-			get => health;
+			get => m_Health;
 			set {
-				health = value;
+				m_Health = value;
 				EventManager.Gameplay.HealthChanged(value);
 			}
 		}
 
 		protected override void Awake() {
 			base.Awake();
-			health = maxHealth;
+			m_Health = maxHealth;
 		}
 
-		// TODO(Ayoub): Separate scene management from persistent data
 		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode) {
-			if (m_currentMicroGame != null) {
-				var unloadOp = SceneManager.UnloadSceneAsync(m_currentMicroGame.sceneName);
-				unloadOp.completed += (op) => LoadNewScene(microGame, loadSceneMode);
-			}
-			else {
-				LoadNewScene(microGame, loadSceneMode);
-			}
+			m_SceneManagerWrapper.SwitchScene(microGame, loadSceneMode);
 		}
-
-		private void LoadNewScene(MicroGame microGame, LoadSceneMode loadSceneMode) {
-			if (microGame == null) {
-				Debug.LogError("MicroGame is null in LoadNewScene.");
-				return;
-			}
-
-			m_currentMicroGame = microGame;
-			SceneManager.sceneLoaded += OnMicroGameSceneLoaded;
-			SceneManager.LoadSceneAsync(microGame.sceneName, loadSceneMode);
-		}
-
-		private void OnMicroGameSceneLoaded(Scene microGameScene, LoadSceneMode sceneMode) {
-			SceneManager.sceneLoaded -= OnMicroGameSceneLoaded;
-
-			var controller = FindObjectOfType<AMicroGameController>();
-
-			if (controller != null) {
-				controller.Initialize(m_currentMicroGame);
-			}
-			else {
-				Debug.LogError($"No MicroGameController found in scene: {microGameScene.name}");
-			}
-		}
-
 
 		[System.Serializable]
 		public class MicroGame {
@@ -112,14 +79,15 @@ namespace Auboreal {
 
 		public MicroGame GetRandomMicroGame() {
 			var microGames = microgames;
-			var toRandomFromMicroGames = microGames.Except(_generatedMicroGames).ToArray();
+			var toRandomFromMicroGames = microGames.Except(m_GeneratedMicroGames).ToArray();
 
 			if (toRandomFromMicroGames.Length <= 0) {
-				_generatedMicroGames.Clear();
+				m_GeneratedMicroGames.Clear();
 				toRandomFromMicroGames = microGames;
 			}
+
 			var microGameIndex = UnityEngine.Random.Range(0, toRandomFromMicroGames.Length);
-			_generatedMicroGames.Add(toRandomFromMicroGames[microGameIndex]);
+			m_GeneratedMicroGames.Add(toRandomFromMicroGames[microGameIndex]);
 			return toRandomFromMicroGames[microGameIndex];
 		}
 
