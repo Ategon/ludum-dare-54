@@ -23,7 +23,8 @@ namespace Auboreal {
 		}
 
 		private void OnShowDebugToggle() {
-			m_ShowDebugGUI = !m_ShowDebugGUI;
+			//TODO(Ayoub): Fix aspect ratio
+			// m_ShowDebugGUI = !m_ShowDebugGUI;
 		}
 
 		private void OnGUI() {

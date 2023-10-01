@@ -2,6 +2,18 @@ namespace Auboreal {
 
 	public static class EventManager {
 
+
+		public static class UI {
+
+			public delegate void MicroGameTimerChangeDelegate(float time);
+
+			public static event MicroGameTimerChangeDelegate OnMicroGameTimerChange;
+
+			public static void MicroGameTimerChange(float time) {
+				OnMicroGameTimerChange?.Invoke(time);
+			}
+
+		}
 		public static class Global {
 
 			public delegate void RequestNextMicroGameDelegate();
