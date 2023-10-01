@@ -20,25 +20,24 @@ namespace Auboreal {
 		}
 
 		private void Update() {
-			m_MicroGameTimer.ProcessTimer();
+			m_MicroGameTimer?.ProcessTimer();
 		}
 
-		public void StartMicroGame(PersistentData.MicroGame microgame) {
-			Debug.Log($"MicroGame Started-{microgame.name}");
+		public void StartMicroGame(PersistentData.MicroGame microGame) {
+			EventManager.Global.OnMicroGameTimerStart -= StartMicroGame;
+			Debug.Log($"MicroGame Started-{microGame.name}");
 			OnGameStarted();
 		}
 
-		public void EndMicroGame(PersistentData.MicroGame microgame) {
-			Debug.Log($"MicroGame Ended-{microgame.name}");
+		public void EndMicroGame(PersistentData.MicroGame microGame) {
+			EventManager.Global.OnMicroGameTimerOver -= EndMicroGame;
+			Debug.Log($"MicroGame Ended-{microGame.name}");
 			OnGameEnded();
 		}
 
 		protected virtual void OnGameStarted() { }
 
 		protected virtual void OnGameEnded() {
-			EventManager.Global.OnMicroGameTimerStart -= StartMicroGame;
-			EventManager.Global.OnMicroGameTimerOver -= EndMicroGame;
-
 			EventManager.Global.RequestNextMicroGame();
 		}
 
