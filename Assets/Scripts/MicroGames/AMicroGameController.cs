@@ -5,17 +5,18 @@ namespace Auboreal {
 	public abstract class AMicroGameController : MonoBehaviour, IMicroGameFlow {
 
 		public GlobalSettings globalSettings;
-		
-		protected MicroGameTimer m_MicroGameTimer;
-		public PersistentData.MicroGame MicroGameInstance { get; set; }
+
+		private MicroGameTimer m_MicroGameTimer;
+		protected PersistentData.MicroGame MicroGameInstance { get; set; }
 
 		public virtual void Initialize(PersistentData.MicroGame microGameInstance) {
 			this.MicroGameInstance = microGameInstance;
-			m_MicroGameTimer = new MicroGameTimer(globalSettings.timerDuration, microGameInstance);
-			m_MicroGameTimer.StartTimer();
 
 			EventManager.Global.OnMicroGameTimerStart += StartMicroGame;
 			EventManager.Global.OnMicroGameTimerOver += EndMicroGame;
+
+			m_MicroGameTimer = new MicroGameTimer(globalSettings.timerDuration, microGameInstance);
+			m_MicroGameTimer.StartTimer();
 		}
 
 		private void Update() {
@@ -37,7 +38,7 @@ namespace Auboreal {
 		protected virtual void OnGameEnded() {
 			EventManager.Global.OnMicroGameTimerStart -= StartMicroGame;
 			EventManager.Global.OnMicroGameTimerOver -= EndMicroGame;
-			
+
 			EventManager.Global.RequestNextMicroGame();
 		}
 
