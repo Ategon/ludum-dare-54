@@ -14,7 +14,10 @@
 
 			if (m_CurrentMicroGame != null) {
 				var unloadOp = SceneManager.UnloadSceneAsync(m_CurrentMicroGame.sceneName);
-				unloadOp.completed += (op) => LoadIntermediateScene(microGame, loadSceneMode);
+
+				if (unloadOp != null) {
+					unloadOp.completed += (op) => LoadIntermediateScene(microGame, loadSceneMode);
+				}
 			}
 			else {
 				LoadIntermediateScene(microGame, loadSceneMode);
@@ -29,16 +32,18 @@
 		private void LoadNewScene(PersistentData.MicroGame microGame, LoadSceneMode loadSceneMode) {
 			var unloadOp = SceneManager.UnloadSceneAsync("_Intermediate");
 
-			unloadOp.completed += (op) => {
-				if (microGame == null) {
-					Debug.LogError("MicroGame is null in LoadNewScene.");
-					return;
-				}
+			if (unloadOp != null) {
+				unloadOp.completed += (op) => {
+					if (microGame == null) {
+						Debug.LogError("MicroGame is null in LoadNewScene.");
+						return;
+					}
 
-				m_CurrentMicroGame = microGame;
-				SceneManager.sceneLoaded += OnMicroGameSceneLoaded;
-				SceneManager.LoadSceneAsync(microGame.sceneName, loadSceneMode);
-			};
+					m_CurrentMicroGame = microGame;
+					SceneManager.sceneLoaded += OnMicroGameSceneLoaded;
+					SceneManager.LoadSceneAsync(microGame.sceneName, loadSceneMode);
+				};
+			}
 		}
 
 		private void OnMicroGameSceneLoaded(Scene microGameScene, LoadSceneMode sceneMode) {
