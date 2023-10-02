@@ -11,7 +11,7 @@ namespace Auboreal {
 
     bool buffer = false;
     float timer = 0;
-    int count = 0;
+    public int count = 0;
 
     private void Start()
     {

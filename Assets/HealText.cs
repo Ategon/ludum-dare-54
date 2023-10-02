@@ -28,7 +28,7 @@ namespace Auboreal
 
         void onScoreChanged(float amount)
         {
-            if (amount % 10 == 0)
+            if (amount % 25 == 0)
             {
                 if (PersistentData.Instance.Health == 3) return;
 
