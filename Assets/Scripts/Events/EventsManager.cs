@@ -62,15 +62,15 @@ namespace Auboreal {
 		// TODO(Ayoub): Separate events context even further?
 		public static class Gameplay {
 
-			public delegate void HealthChangedDelegate(float amount);
+			public delegate void HealthChangedDelegate(float amount, float oldAmount);
 
 			public delegate void ScoreChangedDelegate(float amount);
 
 			public static event HealthChangedDelegate OnHealthChanged;
 			public static event ScoreChangedDelegate OnScoreChanged;
 
-			public static void HealthChanged(float amount) {
-				OnHealthChanged?.Invoke(amount);
+			public static void HealthChanged(float amount, float oldAmount) {
+				OnHealthChanged?.Invoke(amount, oldAmount);
 			}
 
 			public static void ScoreChanged(float amount) {

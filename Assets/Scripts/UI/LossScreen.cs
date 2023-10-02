@@ -23,7 +23,7 @@ namespace Auboreal
             EventManager.Gameplay.OnHealthChanged -= onHealthChanged;
         }
 
-        void onHealthChanged(float amount)
+        void onHealthChanged(float amount, float oldAmount)
         {
             if (amount == 0)
             {

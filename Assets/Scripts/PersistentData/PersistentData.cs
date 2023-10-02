@@ -43,8 +43,9 @@ namespace Auboreal {
 		public int Health {
 			get => m_Health;
 			set {
+				int old_value = m_Health;
 				m_Health = value;
-				EventManager.Gameplay.HealthChanged(value);
+				EventManager.Gameplay.HealthChanged(value, old_value);
 			}
 		}
 
@@ -57,6 +58,10 @@ namespace Auboreal {
 		public int GetGlobalScoresAbove(int score)
         {
 			return scores.Where(s => s.score > score).Count();
+		}
+
+		public int GetMax() {
+			return localScores.Max(t => t);
 		}
 
 		protected override void Awake() {
@@ -98,8 +103,8 @@ namespace Auboreal {
 			Count = 5,
 			Land = 6,
 			Repair = 7,
-			FuelUp = 8
-
+			FuelUp = 8,
+			Jump = 9
 		}
 
 		public MicroGame GetRandomMicroGame() {

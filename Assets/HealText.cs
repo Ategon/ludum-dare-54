@@ -7,7 +7,7 @@ using DG.Tweening;
 
 namespace Auboreal
 {
-    public class FasterText : MonoBehaviour
+    public class HealText : MonoBehaviour
     {
         public TextMeshProUGUI text;
 
@@ -28,13 +28,16 @@ namespace Auboreal
 
         void onScoreChanged(float amount)
         {
-            if (amount % 4 == 0)
+            if (amount % 10 == 0)
             {
-                text.transform.localPosition = new Vector3(51, 35, 0);
+                if (PersistentData.Instance.Health == 3) return;
+
+                text.transform.localPosition = new Vector3(-51, 35, 0);
                 text.transform.DOLocalMoveY(-97, 3f).SetEase(Ease.InBack);
-                text.transform.DOLocalMoveX(-45, 3f);
+                text.transform.DOLocalMoveX(45, 3f);
                 text.DOFade(1f, 0.5f);
                 text.DOFade(0, 0.5f).SetDelay(2);
+                PersistentData.Instance.Health += 1;
                 if (Time.timeScale == 0) return;
                 Time.timeScale += 0.1f;
             }

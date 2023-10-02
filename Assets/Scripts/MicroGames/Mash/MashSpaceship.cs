@@ -23,8 +23,7 @@ public class MashSpaceship : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PersistentData.Instance.Health--;
-        Debug.Log("Lose");
+        FindObjectOfType<MashMicroGameController>().lost = true;
         gameObject.SetActive(false);
     }
 }

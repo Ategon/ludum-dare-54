@@ -29,7 +29,9 @@ namespace Auboreal
 
         private void onPlacementLoaded (int place, int scores)
         {
-            GetComponent<TextMeshProUGUI>().text = $"(Top {place*100/(scores+1)}%)  #{place} :Global";
+            int best = PersistentData.Instance.GetMax();
+            int bestPlacement = PersistentData.Instance.GetGlobalScoresAbove(best);
+            GetComponent<TextMeshProUGUI>().text = $"(Top {bestPlacement * 100/(scores + 1)}%) #{bestPlacement} :Best\n(Top {place*100/(scores+1)}%)  #{place} :Global";
             StartCoroutine(PersistentData.Instance.Upload());
         }
     }

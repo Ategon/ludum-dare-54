@@ -20,7 +20,6 @@ namespace Auboreal {
 			SpawnParts();
 		}
 
-
 		private void SpawnParts() {
 			var partsEnumCount = Enum.GetValues(typeof(SpaceShipPartType)).Length;
 
