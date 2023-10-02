@@ -1,18 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using DG.Tweening;
 
-public class GetReadyText : MonoBehaviour
+namespace Auboreal
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GetReadyText : MonoBehaviour
     {
-        
-    }
+        private TextMeshProUGUI text;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void OnEnable()
+        {
+            EventManager.Global.OnMicroGameSceneSwitch += onMicrogameSwitched;
+            text = GetComponent<TextMeshProUGUI>();
+        }
+
+        void OnDisable()
+        {
+            EventManager.Global.OnMicroGameSceneSwitch -= onMicrogameSwitched;
+        }
+
+        void OnDestroy()
+        {
+            EventManager.Global.OnMicroGameSceneSwitch -= onMicrogameSwitched;
+        }
+
+        void onMicrogameSwitched(PersistentData.MicroGame microGame)
+        {
+            text.DOFade(1, 0.5f);
+            text.DOFade(0, 0.5f).SetDelay(2.5f);
+        }
     }
 }

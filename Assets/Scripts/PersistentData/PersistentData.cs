@@ -24,6 +24,8 @@ namespace Auboreal {
 		private int m_Score = 0;
 		private int m_Health = 0;
 
+		public List<int> localScores = new List<int>();
+
 		private SceneManagerWrapper m_SceneManagerWrapper;
 		private readonly List<MicroGame> m_GeneratedMicroGames = new();
 
@@ -44,6 +46,17 @@ namespace Auboreal {
 				m_Health = value;
 				EventManager.Gameplay.HealthChanged(value);
 			}
+		}
+
+		public int GetLocalScoresAbove(int score)
+        {
+			return localScores.Where(s => s > score).Count();
+
+		}
+
+		public int GetGlobalScoresAbove(int score)
+        {
+			return scores.Where(s => s.score > score).Count();
 		}
 
 		protected override void Awake() {
@@ -116,18 +129,19 @@ namespace Auboreal {
 			public int score;
 		}
 
-		IEnumerator Get()
+		public IEnumerator Get()
 		{
 			UnityWebRequest www = UnityWebRequest.Get("https://pangora.social/api/leaderboard");
 			yield return www.SendWebRequest();
 			RootObject root = JsonUtility.FromJson<RootObject>(www.downloadHandler.text.Trim('"').Replace("\\", ""));
 			scores = root.scores;
+			EventManager.Global.PlacementLoaded(GetGlobalScoresAbove(m_Score)+1);
 			www.Dispose();
 		}
 
-		IEnumerator Upload()
+		public IEnumerator Upload()
         {
-			UnityWebRequest www = UnityWebRequest.Post("https://pangora.social/api/leaderboard", System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{{\"score\": {14}}}")));
+			UnityWebRequest www = UnityWebRequest.Post("https://pangora.social/api/leaderboard", System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{{\"score\": {m_Score}}}")));
 			www.SetRequestHeader("Content-Type", "application/json");
 			yield return www.SendWebRequest();
 			if (www.result != UnityWebRequest.Result.Success)

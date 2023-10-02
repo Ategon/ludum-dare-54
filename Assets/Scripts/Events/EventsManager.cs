@@ -32,6 +32,15 @@ namespace Auboreal {
 				OnMicroGameTimerStart?.Invoke(microGame);
 			}
 
+			public delegate void MicroGameSceneSwitchDelegate(PersistentData.MicroGame microGame);
+
+			public static event MicroGameSceneSwitchDelegate OnMicroGameSceneSwitch;
+
+			public static void MicroGameSceneSwitch(PersistentData.MicroGame microGame)
+			{
+				OnMicroGameSceneSwitch?.Invoke(microGame);
+			}
+
 			public delegate void MicroGameTimerOverDelegate(PersistentData.MicroGame microGame, bool lost = false);
 
 			public static event MicroGameTimerOverDelegate OnMicroGameTimerOver;
@@ -40,6 +49,14 @@ namespace Auboreal {
 				OnMicroGameTimerOver?.Invoke(microGame);
 			}
 
+			public delegate void PlacementLoadedDelegate(int place);
+
+			public static event PlacementLoadedDelegate OnPlacementLoaded;
+
+			public static void PlacementLoaded(int place)
+			{
+				OnPlacementLoaded?.Invoke(place);
+			}
 		}
 
 		// TODO(Ayoub): Separate events context even further?

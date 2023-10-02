@@ -10,6 +10,7 @@ public class DiscreteWave : MonoBehaviour
     [SerializeField] private float amplitude = 1f;
     [SerializeField] private float speed = 3f;
     private int character = 0;
+    [SerializeField] private float offset = 0;
 
     void Awake()
     {
@@ -22,7 +23,7 @@ public class DiscreteWave : MonoBehaviour
         timer += Time.deltaTime;
         text.ForceMeshUpdate();
 
-        int nextCharacter = Mathf.FloorToInt(timer * speed % text.textInfo.characterCount);
+        int nextCharacter = Mathf.FloorToInt((timer * speed + offset) % text.textInfo.characterCount);
 
         if (nextCharacter != character)
         {
