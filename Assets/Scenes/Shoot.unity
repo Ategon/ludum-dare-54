@@ -802,6 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f366b9e6f7bce747b155dc94b68b13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
   spaceShipSpeed: 0.2
   spaceShipThurst: 0.05
   mainCamera: {fileID: 1674776021}

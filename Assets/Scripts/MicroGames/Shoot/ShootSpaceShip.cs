@@ -6,6 +6,8 @@ namespace Auboreal {
 
 	public class ShootSpaceShip : MonoBehaviour {
 
+		[SerializeField] private GameObject explosion;
+
 		public float spaceShipSpeed;
 		public float spaceShipThurst;
 		public Camera mainCamera;
@@ -92,7 +94,13 @@ namespace Auboreal {
 		private void OnCollisionEnter2D(Collision2D other) {
 			if (other.gameObject.CompareTag("Asteroid")) {
 				m_MicroController.lost = true;
+				var summonedExplosion = Instantiate(explosion, this.transform.position, this.transform.rotation);
+				summonedExplosion.transform.SetParent(this.transform.parent);
 				Destroy(this.gameObject);
+				var asteroidExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
+				asteroidExplosion.transform.SetParent(other.transform.parent);
+				Destroy(other.gameObject);
+				
 			}
 		}
 

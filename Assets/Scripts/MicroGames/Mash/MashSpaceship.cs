@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class MashSpaceship : MonoBehaviour
 {
+    [SerializeField] private GameObject explosion;
+
     [SerializeField] private Transform sun;
     [SerializeField] private float pullSpeed;
     [SerializeField] private float spaceshipSpeed;
@@ -25,6 +27,8 @@ public class MashSpaceship : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         FindObjectOfType<MashMicroGameController>().lost = true;
-        gameObject.SetActive(false);
+        var summonedExplosion = Instantiate(explosion, this.transform.position, this.transform.rotation);
+        summonedExplosion.transform.SetParent(this.transform.parent);
+        Destroy(this.gameObject);
     }
 }

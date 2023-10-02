@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ca979a837ed1344ac6208d1a5c163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
   sun: {fileID: 2122118020}
   pullSpeed: 0.2
   spaceshipSpeed: 0.02
