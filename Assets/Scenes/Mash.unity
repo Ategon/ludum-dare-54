@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sun: {fileID: 2122118020}
-  pullSpeed: 0.01
+  pullSpeed: 0.1
   spaceshipSpeed: 0.02
 --- !u!50 &238391290
 Rigidbody2D:
