@@ -739,6 +739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spacestation: {fileID: 991507327}
   speed: 0.15
+  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
   controller: {fileID: 886585706}
 --- !u!4 &1033224818
 Transform:
