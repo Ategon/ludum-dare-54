@@ -4,38 +4,40 @@ namespace Auboreal {
 
 	public abstract class AMicroGameController : MonoBehaviour, IMicroGameFlow {
 
-		protected MicroGameTimer m_MicroGameTimer;
-		public PersistentData.MicroGame MicroGameInstance { get; set; }
+		public GlobalSettings globalSettings;
+
+		private MicroGameTimer m_MicroGameTimer;
+		protected PersistentData.MicroGame MicroGameInstance { get; set; }
 
 		public virtual void Initialize(PersistentData.MicroGame microGameInstance) {
 			this.MicroGameInstance = microGameInstance;
-			m_MicroGameTimer = new MicroGameTimer(6f, microGameInstance);
-			m_MicroGameTimer.StartTimer();
 
 			EventManager.Global.OnMicroGameTimerStart += StartMicroGame;
 			EventManager.Global.OnMicroGameTimerOver += EndMicroGame;
+
+			m_MicroGameTimer = new MicroGameTimer(globalSettings.timerDuration, microGameInstance);
+			m_MicroGameTimer.StartTimer();
 		}
 
 		private void Update() {
-			m_MicroGameTimer.ProcessTimer();
+			m_MicroGameTimer?.ProcessTimer();
 		}
 
-		public void StartMicroGame(PersistentData.MicroGame microgame) {
-			Debug.Log($"MicroGame Started-{microgame.name}");
+		public void StartMicroGame(PersistentData.MicroGame microGame) {
+			EventManager.Global.OnMicroGameTimerStart -= StartMicroGame;
+			Debug.Log($"MicroGame Started-{microGame.name}");
 			OnGameStarted();
 		}
 
-		public void EndMicroGame(PersistentData.MicroGame microgame) {
-			Debug.Log($"MicroGame Ended-{microgame.name}");
+		public void EndMicroGame(PersistentData.MicroGame microGame) {
+			EventManager.Global.OnMicroGameTimerOver -= EndMicroGame;
+			Debug.Log($"MicroGame Ended-{microGame.name}");
 			OnGameEnded();
 		}
 
 		protected virtual void OnGameStarted() { }
 
 		protected virtual void OnGameEnded() {
-			EventManager.Global.OnMicroGameTimerStart -= StartMicroGame;
-			EventManager.Global.OnMicroGameTimerOver -= EndMicroGame;
-			
 			EventManager.Global.RequestNextMicroGame();
 		}
 

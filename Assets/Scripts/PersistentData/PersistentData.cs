@@ -43,8 +43,9 @@ namespace Auboreal {
 			m_Health = maxHealth;
 		}
 
-		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode) {
-			m_SceneManagerWrapper.SwitchScene(microGame, loadSceneMode);
+		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode, bool isComingFromMenu) {
+			m_SceneManagerWrapper.SwitchScene(microGame, loadSceneMode, isComingFromMenu);
+			Score += 1;
 		}
 
 		[System.Serializable]

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Auboreal {
 
 	public class MashMicroGameController : AMicroGameController {
@@ -28,6 +30,7 @@ namespace Auboreal {
 		private void OnAnyInputPressed()
 		{
 			check = 1;
+			Debug.Log("OnAnyInputPressed");
 		}
 
 
