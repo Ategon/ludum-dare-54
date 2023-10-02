@@ -9,4 +9,24 @@ public class MainMenu : MonoBehaviour
     {
         FindObjectOfType<MicroGameFlowManager>().StartMicroGame(PersistentData.Instance.GetRandomMicroGame());
     }
+
+    public void QuitGame()
+    {
+
+    }
+
+    public void Leaderboard()
+    {
+
+    }
+
+    public void Credits()
+    {
+
+    }
+
+    public void Options()
+    {
+
+    }
 }
