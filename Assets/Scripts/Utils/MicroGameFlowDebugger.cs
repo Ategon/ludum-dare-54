@@ -18,7 +18,11 @@ namespace Auboreal {
 
 		private void OnTriggerNextMicroGame() {
 			EventManager.Input.CleanInputs();
-			PersistentData.Instance.SwitchScene(PersistentData.Instance.GetRandomMicroGame(), LoadSceneMode.Additive);
+
+			PersistentData.Instance.SwitchScene(
+				PersistentData.Instance.GetRandomMicroGame(),
+				LoadSceneMode.Additive,
+				false);
 		}
 
 	}

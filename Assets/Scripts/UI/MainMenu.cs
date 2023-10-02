@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Auboreal;
+namespace Auboreal {
 
-public class MainMenu : MonoBehaviour
-{
-    public void StartGame()
-    {
-        FindObjectOfType<MicroGameFlowManager>().StartMicroGame(PersistentData.Instance.GetRandomMicroGame());
-    }
+	using System.Collections;
+	using System.Collections.Generic;
+	using UnityEngine;
+	using Auboreal;
 
-    public void QuitGame()
+	public class MainMenu : MonoBehaviour {
+
+		public void StartGame() {
+			FindObjectOfType<MicroGameFlowManager>()
+				.StartMicroGame(PersistentData.Instance.GetRandomMicroGame(), isComingFromMenu: true);
+		}
+
+		public void QuitGame()
     {
         //If we are running in a standalone build of the game
 #if UNITY_STANDALONE
@@ -25,18 +27,12 @@ public class MainMenu : MonoBehaviour
 #endif
     }
 
-    public void Leaderboard()
-    {
+		public void Leaderboard() { }
 
-    }
+		public void Credits() { }
 
-    public void Credits()
-    {
+		public void Options() { }
 
-    }
+	}
 
-    public void Options()
-    {
-
-    }
 }
