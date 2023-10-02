@@ -57,7 +57,7 @@ namespace Auboreal
 
 			timer += Time.deltaTime;
 
-			transform.position = new Vector3(-0.53f + timer * 0.02f, -0.24f + timer * 0.015f + row * 0.33f, 0);
+			transform.position = new Vector3(-0.53f + timer * 0.02f, -0.29f + timer * 0.015f + row * 0.35f, 0);
 		}
 
 		private void OnCollisionEnter2D(Collision2D collision)
