@@ -32,19 +32,22 @@ namespace Auboreal
             {
                 if (amount < oldAmount)
                 {
-                    travellingHealth.position = child.transform.position;
-                    travellingHealth.DOMoveY(child.transform.position.y - 160, 1.5f).SetEase(Ease.InBack);
-                    travellingHealth.DOMoveX(child.transform.position.x + 130, 1.5f).SetEase(Ease.InQuad);
+                    if (index != 0)
+                    {
+                        travellingHealth.position = child.transform.position;
+                        travellingHealth.DOMoveY(child.transform.position.y - 160, 1.5f).SetEase(Ease.InBack);
+                        travellingHealth.DOMoveX(child.transform.position.x + 130, 1.5f).SetEase(Ease.InQuad);
+                    }
                     child.SetActive(false);
                 }
             }
 
-            if ((int) oldAmount == index)
-            {
-                if (amount > oldAmount){
+            //if ((int) oldAmount == index)
+            //{
+                if (amount > oldAmount && amount -1 >= index){
                     child.SetActive(true);
                 }
-            }
+            //}
         }
     }
 
