@@ -681,7 +681,7 @@ MonoBehaviour:
   bulletSpawnTransform: {fileID: 1855885834}
   bulletsContainer: {fileID: 421573991}
   bulletPrefab: {fileID: 7922934648298839150, guid: 867e105e2e8878e428d491af4daeaa7b, type: 3}
-  shootRate: 0.2
+  shootRate: 0.5
 --- !u!1 &1120026050
 GameObject:
   m_ObjectHideFlags: 0
