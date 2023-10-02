@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PitchTime : MonoBehaviour
+public class OrbitAsteroid : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.pitch = 1 + (Time.timeScale - 1) / 4;
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
