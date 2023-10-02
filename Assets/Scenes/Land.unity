@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24306e09fecda84429d9522c8a69a64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
   thrustAmount: 0.05
   thrustDuration: 0.5
   spaceshipParent: {fileID: 1796927184}
@@ -299,12 +300,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193009418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0008794949, y: -0.064, z: 0}
+  m_LocalPosition: {x: 0.0017205051, y: -0.18229997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1576265764}
-  m_Father: {fileID: 1961960406}
+  m_Father: {fileID: 774549831}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &193009420
@@ -561,6 +562,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 193009419}
   - {fileID: 1961960406}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1109,7 +1111,7 @@ GameObject:
   - component: {fileID: 1961960408}
   m_Layer: 0
   m_Name: Land
-  m_TagString: Untagged
+  m_TagString: Land
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,8 +1127,7 @@ Transform:
   m_LocalPosition: {x: 0.0026, y: -0.1183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 193009419}
+  m_Children: []
   m_Father: {fileID: 774549831}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

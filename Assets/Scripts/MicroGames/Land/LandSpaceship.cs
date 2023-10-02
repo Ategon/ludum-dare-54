@@ -5,6 +5,8 @@ namespace Auboreal {
 
 	public class LandSpaceship : MonoBehaviour {
 
+		[SerializeField] private GameObject explosion;
+
 		public float thrustAmount;
 		public float thrustDuration;
 		public Transform spaceshipParent;
@@ -43,6 +45,11 @@ namespace Auboreal {
 				m_Landed = true;
 				m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
 				con.lost = false;
+			}else if (other.gameObject.CompareTag("Land")) {
+				con.lost = true;
+				var summonedExplosion = Instantiate(explosion, this.transform.position, this.transform.rotation);
+				summonedExplosion.transform.SetParent(this.transform.parent);
+				Destroy(this.gameObject);
 			}
 		}
 
