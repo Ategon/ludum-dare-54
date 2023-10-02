@@ -16,11 +16,11 @@ namespace Auboreal {
 		}
 
 		private void OnMicroGameTimerChange(float time) {
-			if (time > 3 && microGameTimerTxt.gameObject.active)
+			if (time > 3 && microGameTimerTxt.gameObject.activeSelf)
             {
 				microGameTimerTxt.gameObject.SetActive(false);
 			}
-			else if (time <= 3 && !microGameTimerTxt.gameObject.active)
+			else if (time <= 3 && !microGameTimerTxt.gameObject.activeSelf)
 			{
 				microGameTimerTxt.gameObject.SetActive(true);
 			}

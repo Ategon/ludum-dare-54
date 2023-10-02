@@ -32,7 +32,7 @@ namespace Auboreal {
 				OnMicroGameTimerStart?.Invoke(microGame);
 			}
 
-			public delegate void MicroGameTimerOverDelegate(PersistentData.MicroGame microGame);
+			public delegate void MicroGameTimerOverDelegate(PersistentData.MicroGame microGame, bool lost = false);
 
 			public static event MicroGameTimerOverDelegate OnMicroGameTimerOver;
 

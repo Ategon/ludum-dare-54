@@ -10,6 +10,11 @@ namespace Auboreal {
 			base.OnGameEnded();
 		}
 
+		public void EndGame(bool lost)
+        {
+			EndMicroGame(this.MicroGameInstance, lost);
+		}
+
 	}
 
 }

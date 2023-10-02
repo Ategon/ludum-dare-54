@@ -45,7 +45,7 @@ namespace Auboreal {
 			}
 			// A
 			else if (m_InputHandler.Input.x < 0) {
-				ChangePart(2);
+				ChangePart(1);
 			}
 			// W
 			else if (m_InputHandler.Input.y > 0) {
@@ -53,7 +53,7 @@ namespace Auboreal {
 			}
 			// S
 			else if (m_InputHandler.Input.y < 0) {
-				ChangePart(1);
+				ChangePart(2);
 			}
 		}
 

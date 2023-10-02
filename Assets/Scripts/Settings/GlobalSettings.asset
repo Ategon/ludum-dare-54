@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9502f33b8fd5b114dba1f725aa4371e3, type: 3}
   m_Name: GlobalSettings
   m_EditorClassIdentifier: 
-  timerDuration: 6
+  timerDuration: 7.1

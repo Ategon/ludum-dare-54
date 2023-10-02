@@ -31,7 +31,8 @@ namespace Auboreal
             if (amount % 4 == 0)
             {
                 text.DOFade(1f, 0.5f).OnComplete(() => { text.DOFade(0, 0.5f); });
-                Time.timeScale += 0.25f;
+                if (Time.timeScale == 0) return;
+                Time.timeScale += 0.1f;
             }
         }
     }

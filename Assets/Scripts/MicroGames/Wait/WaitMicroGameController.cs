@@ -21,7 +21,7 @@ namespace Auboreal {
 		}
 
 		private void OnAnyInputPressed() {
-			EndMicroGame(this.MicroGameInstance);
+			EndMicroGame(this.MicroGameInstance, true);
 		}
 
 	}
