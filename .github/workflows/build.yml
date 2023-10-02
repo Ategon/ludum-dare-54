@@ -38,7 +38,7 @@ jobs:
         run: |
           butler push build/StandaloneWindows64 team-auboreal/the-big-crunch:windows
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.ITCHIO_API_KEY }}
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
 
 #  buildWebGL:
 #    name: Build for WebGL
