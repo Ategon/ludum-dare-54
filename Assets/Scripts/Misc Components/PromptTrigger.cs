@@ -15,6 +15,8 @@ public class PromptTrigger : MonoBehaviour
     private bool triggered = false;
     private float cooldownTimer = 0;
 
+    public bool reThrow = false;
+
     private void Start()
     {
         inputs = FindObjectOfType<InputHandler>();

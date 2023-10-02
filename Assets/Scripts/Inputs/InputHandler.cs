@@ -10,30 +10,31 @@ namespace Auboreal {
 		public float Restart { get; private set; }
 
 		public void OnInput(InputAction.CallbackContext context) {
+			this.Input = context.ReadValue<Vector2>();
+
 			if (context.performed) {
-				this.Input = context.ReadValue<Vector2>();
 				EventManager.Input.AnyInputPressed();
 			}
 		}
 
 		public void OnPause(InputAction.CallbackContext context) {
-			if (context.performed) {
+			if (context.performed || context.canceled) {
 				this.Pause = context.ReadValue<float>();
 			}
 		}
 
 		public void OnRestart(InputAction.CallbackContext context) {
-			if (context.performed) {
+			if (context.performed || context.canceled) {
 				this.Restart = context.ReadValue<float>();
 			}
 		}
 
 
 		#region Debug
-		
+
 		public void OnNextMicroGame(InputAction.CallbackContext context) {
 			if (context.performed) {
-				EventManager.Debug.TriggerNextMicroGame();
+				//EventManager.Debug.TriggerNextMicroGame();
 			}
 		}
 
