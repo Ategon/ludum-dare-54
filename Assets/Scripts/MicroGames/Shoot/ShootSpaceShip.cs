@@ -6,8 +6,6 @@ namespace Auboreal {
 
 	public class ShootSpaceShip : MonoBehaviour {
 
-	
-
 		public float spaceShipSpeed;
 		public float spaceShipThurst;
 		public Camera mainCamera;
@@ -15,6 +13,7 @@ namespace Auboreal {
 
 		[Header("Shooting")]
 		public Transform bulletSpawnTransform;
+
 		public Transform bulletsContainer;
 		public ShootBullet bulletPrefab;
 		public float shootRate = 0.5f;
@@ -24,6 +23,7 @@ namespace Auboreal {
 		private float m_SpriteWidth;
 		private InputHandler m_InputHandler;
 		private Vector3 m_CurrentVelocity;
+		private AMicroGameController m_MicroController;
 
 		private enum MoveState {
 
@@ -33,7 +33,8 @@ namespace Auboreal {
 
 		}
 
-		public void OnGameStarted() {
+		public void OnGameStarted(AMicroGameController microGameController) {
+			m_MicroController = microGameController;
 			m_SpriteWidth = spaceShipRenderer.bounds.size.x;
 			m_InputHandler = FindObjectOfType<InputHandler>();
 		}
@@ -85,6 +86,13 @@ namespace Auboreal {
 					break;
 				default:
 					throw new ArgumentOutOfRangeException(nameof(moveState), moveState, null);
+			}
+		}
+
+		private void OnCollisionEnter2D(Collision2D other) {
+			if (other.gameObject.CompareTag("Asteroid")) {
+				m_MicroController.lost = true;
+				Destroy(this.gameObject);
 			}
 		}
 

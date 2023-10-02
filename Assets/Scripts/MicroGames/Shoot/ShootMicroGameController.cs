@@ -6,7 +6,7 @@ namespace Auboreal {
 		
 		protected override void OnGameStarted() {
 			base.OnGameStarted();
-			shootSpaceShip.OnGameStarted();
+			shootSpaceShip.OnGameStarted(this);
 		}
 
 		protected override void OnGameEnded() {
