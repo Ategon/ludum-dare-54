@@ -35,12 +35,12 @@ namespace Auboreal {
 			OnGameEnded();
 		}
 
-		protected virtual void OnGameStarted() { }
+		protected virtual void OnGameStarted() { 
+			
+		}
 
 		protected virtual void OnGameEnded() {
 			EventManager.Global.RequestNextMicroGame();
 		}
-
 	}
-
 }
