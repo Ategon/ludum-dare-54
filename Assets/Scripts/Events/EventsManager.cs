@@ -2,6 +2,18 @@ namespace Auboreal {
 
 	public static class EventManager {
 
+
+		public static class UI {
+
+			public delegate void MicroGameTimerChangeDelegate(float time);
+
+			public static event MicroGameTimerChangeDelegate OnMicroGameTimerChange;
+
+			public static void MicroGameTimerChange(float time) {
+				OnMicroGameTimerChange?.Invoke(time);
+			}
+
+		}
 		public static class Global {
 
 			public delegate void RequestNextMicroGameDelegate();
@@ -60,17 +72,13 @@ namespace Auboreal {
 				OnAnyInputPressed?.Invoke();
 			}
 
+			public static void CleanInputs() {
+				OnAnyInputPressed = null;
+			}
+
 		}
 
 		public static class Debug {
-
-			public delegate void ShowDebugDelegate();
-
-			public static event ShowDebugDelegate OnShowDebugToggled;
-
-			public static void ShowDebugToggled() {
-				OnShowDebugToggled?.Invoke();
-			}
 
 			public delegate void TriggerNextMicroGameDelegate();
 
@@ -78,14 +86,6 @@ namespace Auboreal {
 
 			public static void TriggerNextMicroGame() {
 				OnTriggerNextMicroGame?.Invoke();
-			}
-
-			public delegate void MicroGameSelectedDelegate(PersistentData.MicroGame selectedGame);
-
-			public static event MicroGameSelectedDelegate OnMicroGameSelected;
-
-			public static void MicroGameSelected(PersistentData.MicroGame selectedGame) {
-				OnMicroGameSelected?.Invoke(selectedGame);
 			}
 
 		}

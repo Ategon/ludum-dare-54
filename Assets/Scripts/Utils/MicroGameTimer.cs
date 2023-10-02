@@ -33,10 +33,15 @@ namespace Auboreal {
 					ResetTimer();
 					return true;
 				}
+				
+				EventManager.UI.MicroGameTimerChange(GetRemainingTime());
 			}
 
 			return false;
 		}
+
+		private float GetRemainingTime()
+			=> m_MicroGameDuration - m_MicroGameTimerElapsed;
 
 	}
 

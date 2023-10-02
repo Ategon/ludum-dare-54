@@ -1,0 +1,97 @@
+name: Build project
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  buildWindows:
+    name: Build for StandaloneWindows64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-StandaloneWindows64
+          restore-keys: Library-
+      - uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: StandaloneWindows64
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build-StandaloneWindows64
+          path: build/StandaloneWindows64
+
+  buildWebGL:
+    name: Build for WebGL
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-WebGL
+          restore-keys: Library-
+      - uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: WebGL
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build-WebGL
+          path: build/WebGL
+
+  buildLinux:
+    name: Build for StandaloneLinux64
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-StandaloneLinux64
+          restore-keys: Library-
+      - uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: StandaloneLinux64
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build-StandaloneLinux64
+          path: build/StandaloneLinux64
+
+  buildMac:
+    name: Build for StandaloneOSX
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+      - uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-StandaloneOSX
+          restore-keys: Library-
+      - uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          targetPlatform: StandaloneOSX
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build-StandaloneOSX
+          path: build/StandaloneOSX

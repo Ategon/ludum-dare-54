@@ -30,12 +30,6 @@ namespace Auboreal {
 
 
 		#region Debug
-
-		public void OnShowDebug(InputAction.CallbackContext context) {
-			if (context.performed) {
-				EventManager.Debug.ShowDebugToggled();
-			}
-		}
 		
 		public void OnNextMicroGame(InputAction.CallbackContext context) {
 			if (context.performed) {
