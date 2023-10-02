@@ -13,6 +13,7 @@ namespace Auboreal {
 
 		private float m_SpriteWidth;
 		private InputHandler m_InputHandler;
+		private Vector3 m_CurrentVelocity;
 
 		private enum MoveState {
 
@@ -53,6 +54,9 @@ namespace Auboreal {
 
 			switch (moveState) {
 				case MoveState.Idle:
+					Transform transform1;
+					(transform1 = this.transform).DOKill();
+					transform1.position = currentPos;
 					break;
 				case MoveState.Right:
 					this.transform.DOMoveX(currentPos.x + spaceShipThurst, spaceShipSpeed);

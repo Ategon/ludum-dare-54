@@ -10,8 +10,9 @@ namespace Auboreal {
 		public float Restart { get; private set; }
 
 		public void OnInput(InputAction.CallbackContext context) {
+			this.Input = context.ReadValue<Vector2>();
+
 			if (context.performed) {
-				this.Input = context.ReadValue<Vector2>();
 				EventManager.Input.AnyInputPressed();
 			}
 		}
@@ -30,7 +31,7 @@ namespace Auboreal {
 
 
 		#region Debug
-		
+
 		public void OnNextMicroGame(InputAction.CallbackContext context) {
 			if (context.performed) {
 				EventManager.Debug.TriggerNextMicroGame();
