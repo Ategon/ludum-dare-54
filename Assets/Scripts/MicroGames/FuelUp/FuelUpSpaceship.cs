@@ -9,6 +9,8 @@ namespace Auboreal
         [SerializeField] private Transform spacestation;
         [SerializeField] private float speed = 10f;
 
+        public FuelUpMicroGameController controller;
+
         private bool move = true;
         // Start is called before the first frame update
         void Start()
@@ -41,7 +43,7 @@ namespace Auboreal
                 Debug.Log("Fail");
                 collision.transform.GetComponent<SpaceStation>().rotate = false;
                 move = false;
-                GetComponent<FuelUpMicroGameController>().lost = true;
+                controller.lost = true;
             }
         }
     }

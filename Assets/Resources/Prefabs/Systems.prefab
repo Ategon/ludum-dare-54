@@ -2037,12 +2037,24 @@ PrefabInstance:
       value: Rapidly hit WASD to avoid the sun
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
+      propertyPath: microgames.Array.data[4].instructions
+      value: 'AD to move, W to shoot asteroids '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
+      propertyPath: microgames.Array.data[5].instructions
+      value: D to count up the asteroids that go by
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[6].instructions
       value: AD to land in the target zone
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[7].instructions
       value: WASD to repair the ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
+      propertyPath: microgames.Array.data[8].instructions
+      value: AD to rotate planet. Land at fuel
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[9].instructions
