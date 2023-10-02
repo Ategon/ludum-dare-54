@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Selectable))]
-public class HighlightFix : MonoBehaviour
+public class HighlightFix : MonoBehaviour, IPointerEnterHandler, IDeselectHandler
 {
     public EventSignals signals;
 
@@ -37,7 +37,7 @@ public class HighlightFix : MonoBehaviour
 
     }
 
-    /*
+    
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!EventSystem.current.alreadySelecting)
@@ -46,17 +46,17 @@ public class HighlightFix : MonoBehaviour
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    /*public void OnPointerExit(PointerEventData eventData)
     {
         Cursor.instance.hovering = false;
-    }
+    }*/
 
     public void OnDeselect(BaseEventData eventData)
     {
         this.GetComponent<Selectable>().OnPointerExit(null);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    /*public void OnPointerClick(PointerEventData eventData)
     {
         //if (eventData.button == PointerEventData.InputButton.Left)
         //EventSystem.current.SetSelectedGameObject(this.gameObject);

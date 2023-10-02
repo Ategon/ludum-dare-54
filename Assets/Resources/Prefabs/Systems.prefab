@@ -788,6 +788,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8939701091532440193}
   - component: {fileID: 3573823151795320977}
+  - component: {fileID: 3464460281494333512}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -824,6 +825,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2431704741641067841}
   m_Enabled: 1
+--- !u!114 &3464460281494333512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431704741641067841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a508b9fd4ed26df419b623ed90d7eb50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI: {fileID: 4037753499397986816}
 --- !u!1 &3364872113092410287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1850,7 +1864,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2039825845713841337, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177211696537538990, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+      propertyPath: m_text
+      value: 'Lv: 1'
       objectReference: {fileID: 0}
     - target: {fileID: 4047190778888564298, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -1911,6 +1929,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4644423130833645269}
   m_SourcePrefab: {fileID: 100100000, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+--- !u!1 &4037753499397986816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2039825845713841337, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+  m_PrefabInstance: {fileID: 2613796041473537721}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4037753499397986828 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2039825845713841333, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}

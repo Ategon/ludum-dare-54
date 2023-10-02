@@ -580,6 +580,7 @@ MonoBehaviour:
   langPlatformMaxPosX: -0.45
   langPlatformMinPosX: 0.45
   landPlatform: {fileID: 1961960406}
+  bg: {fileID: 642159845}
 --- !u!1001 &1061710091
 PrefabInstance:
   m_ObjectHideFlags: 0
