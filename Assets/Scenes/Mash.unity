@@ -252,6 +252,8 @@ GameObject:
   - component: {fileID: 238391287}
   - component: {fileID: 238391286}
   - component: {fileID: 238391288}
+  - component: {fileID: 238391290}
+  - component: {fileID: 238391291}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -300,7 +302,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd71c5c4b6ed3f94384c3beb0e4d8e26, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -318,14 +320,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 238391285}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalPosition: {x: 3.34, y: 0, z: 0}
+  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!114 &238391288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +340,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ca979a837ed1344ac6208d1a5c163f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sun: {fileID: 2122118020}
+  pullSpeed: 1
+  spaceshipSpeed: 0.02
+--- !u!50 &238391290
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238391285}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!58 &238391291
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238391285}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0000000013224464, y: 0.011093484}
+  serializedVersion: 2
+  m_Radius: 0.06890653
 --- !u!1001 &1481652182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,6 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2122118020}
   - component: {fileID: 2122118019}
+  - component: {fileID: 2122118021}
   m_Layer: 0
   m_Name: Sun
   m_TagString: Untagged
@@ -478,10 +521,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122118018}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.68, y: 0, z: 0}
-  m_LocalScale: {x: 5.6, y: 5.6, z: 5.6}
+  m_LocalPosition: {x: -5.43, y: 0, z: 0}
+  m_LocalScale: {x: 9.05, y: 9.05, z: 9.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &2122118021
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2122118018}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

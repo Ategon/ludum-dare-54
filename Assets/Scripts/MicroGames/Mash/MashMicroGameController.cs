@@ -4,8 +4,14 @@ namespace Auboreal {
 
 	public class MashMicroGameController : AMicroGameController {
 
-		public int check = 0;
-		protected override void OnGameStarted()
+		private MashSpaceship mashSpaceship;
+
+        private void Awake()
+        {
+			mashSpaceship = FindObjectOfType<MashSpaceship>();
+        }
+
+        protected override void OnGameStarted()
 		{
 			RegisterEvents();
 			base.OnGameStarted();
@@ -29,8 +35,7 @@ namespace Auboreal {
 
 		private void OnAnyInputPressed()
 		{
-			check = 1;
-			Debug.Log("OnAnyInputPressed");
+			mashSpaceship.Move();
 		}
 
 
