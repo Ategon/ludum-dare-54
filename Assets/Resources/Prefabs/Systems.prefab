@@ -638,7 +638,6 @@ GameObject:
   - component: {fileID: 4644423130833645269}
   - component: {fileID: 6434671986146106010}
   - component: {fileID: 6810224057538486129}
-  - component: {fileID: 249818411667858427}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -763,21 +762,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &249818411667858427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1771691839288844598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38486ca700e221447a88441c57fc7f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amplitude: 1
-  speed: 10
-  offset: 0
 --- !u!1 &2431704741641067841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1761,7 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amplitude: 1
-  speed: 3
+  speed: 6
 --- !u!1001 &2613796041473537721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1864,7 +1848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2039825845713841337, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2177211696537538990, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: m_text
@@ -1876,7 +1860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5350667030630243886, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5414816671983289630, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: m_fontColor.a

@@ -18,7 +18,7 @@ public class WaveEffect : MonoBehaviour
 
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
+        timer += Time.unscaledDeltaTime;
         text.ForceMeshUpdate();
 
         for (int i = 0; i < text.textInfo.characterCount; ++i)

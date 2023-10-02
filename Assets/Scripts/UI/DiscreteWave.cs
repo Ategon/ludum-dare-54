@@ -20,7 +20,7 @@ public class DiscreteWave : MonoBehaviour
 
     void FixedUpdate()
     {
-        timer += Time.deltaTime;
+        timer += Time.unscaledDeltaTime;
         text.ForceMeshUpdate();
 
         int nextCharacter = Mathf.FloorToInt((timer * speed + offset) % text.textInfo.characterCount);
