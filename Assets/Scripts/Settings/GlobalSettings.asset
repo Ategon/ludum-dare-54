@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GlobalSettings
   m_EditorClassIdentifier: 
   timerDuration: 6
+  intermediateSceneDuration: 3

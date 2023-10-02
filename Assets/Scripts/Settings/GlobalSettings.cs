@@ -9,6 +9,9 @@ namespace Auboreal {
 
 		[Header("Timer")]
 		public float timerDuration = 6f;
+		
+		[Header("Intermediate Scene Timer")]
+		public float intermediateSceneDuration = 3f;
 
 	}
 
