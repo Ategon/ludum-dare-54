@@ -10,6 +10,9 @@ namespace Auboreal
 		public GameObject explosion;
 		int row = 0;
 		float timer = 0;
+		bool buffer = false;
+		float cooldownTimer = 0;
+		float cooldown = 0.1f;
 
 		public void OnGameStarted()
 		{
@@ -23,22 +26,31 @@ namespace Auboreal
 
 		private void ProcessInputs()
 		{
+			
+			if (buffer == true) return;
+
 			if (m_InputHandler.Input.y > 0 && row < 2)
 			{
 				row += 1;
+				buffer = true;
 			}
 			else if (m_InputHandler.Input.y < 0 && row > 0)
 			{
 				row -= 1;
+				buffer = true;
 			}
 
 		}
 
 		private void FixedUpdate()
 		{
+			cooldownTimer += Time.deltaTime;
+
+			if (cooldownTimer > cooldown && buffer) buffer = false;
+
 			timer += Time.deltaTime;
 
-			transform.position = new Vector3(-0.53f + timer * 0.02f, -0.24f + timer * 0.015f + row * 0.1f, 0);
+			transform.position = new Vector3(-0.53f + timer * 0.02f, -0.24f + timer * 0.032f + row * 0.1f, 0);
 		}
 
 		private void OnCollisionEnter2D(Collision2D collision)
