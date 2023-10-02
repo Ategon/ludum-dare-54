@@ -261,6 +261,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4047190778888564298, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7047400988359041806, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7047400988359041806, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7047400988359041806, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 86.83591
+      objectReference: {fileID: 0}
+    - target: {fileID: 7047400988359041806, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -50.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7047400988359041806, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 11.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}

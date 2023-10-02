@@ -16,7 +16,16 @@ namespace Auboreal {
 		}
 
 		private void OnMicroGameTimerChange(float time) {
-			microGameTimerTxt.text = $"Time Left: {Mathf.RoundToInt(time)}";
+			if (time > 3 && microGameTimerTxt.gameObject.active)
+            {
+				microGameTimerTxt.gameObject.SetActive(false);
+			}
+			else if (time <= 3 && !microGameTimerTxt.gameObject.active)
+			{
+				microGameTimerTxt.gameObject.SetActive(true);
+			}
+
+			microGameTimerTxt.text = $"{Mathf.Ceil(time)}";
 		}
 
 	}
