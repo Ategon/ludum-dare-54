@@ -12,12 +12,12 @@ namespace Auboreal
 
         void OnEnable()
         {
-            EventManager.Gameplay.OnScoreChanged -= onScoreChanged;
+            EventManager.Gameplay.OnScoreChanged += onScoreChanged;
         }
 
         void OnDisable()
         {
-            EventManager.Gameplay.OnScoreChanged += onScoreChanged;
+            EventManager.Gameplay.OnScoreChanged -= onScoreChanged;
         }
 
         void OnDestroy()
