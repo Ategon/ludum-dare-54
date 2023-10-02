@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Auboreal;
 using TMPro;
+using DG.Tweening;
 
 namespace Auboreal
 {
-    public class ScoreText : MonoBehaviour
+    public class FasterText : MonoBehaviour
     {
         public TextMeshProUGUI text;
 
@@ -27,7 +28,11 @@ namespace Auboreal
 
         void onScoreChanged(float amount)
         {
-            text.text = "Lv: " + amount;
+            if (amount % 4 == 0)
+            {
+                text.DOFade(1f, 0.5f).OnComplete(() => { text.DOFade(0, 0.5f); });
+                Time.timeScale *= 1.25f;
+            }
         }
     }
 }
