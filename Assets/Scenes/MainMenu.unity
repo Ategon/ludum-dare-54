@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7320813905699040233, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Name
-      value: MenuButton (2)
+      value: OptionsButton
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Pivot.x
@@ -169,7 +169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -224,8 +224,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1699201446}
     - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28683bf3135be174f84f89ee01a08511, type: 3}
+    - target: {fileID: 7320813906339019531, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_text
+      value: Options
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -245,7 +253,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7320813905699040233, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Name
-      value: MenuButton (4)
+      value: QuitButton
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Pivot.x
@@ -281,7 +289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -335,9 +343,23 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1699201446}
+    - target: {fileID: 7320813905699040235, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28683bf3135be174f84f89ee01a08511, type: 3}
+    - target: {fileID: 7320813906339019531, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_text
+      value: 'Quit
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -357,46 +379,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
   m_PrefabInstance: {fileID: 7320813904719425252}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &979682578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979682573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 405279b565457d244aab06ca5c08aea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  signals: {fileID: 0}
-  disabledSprite: {fileID: 0}
-  enabledSprite: {fileID: 0}
---- !u!114 &979682579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979682573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21ddbbcdd36caf4299ba7346706b7aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  signals: {fileID: 0}
---- !u!114 &979682580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979682573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 354722c8da79f13489aea8b4e25f12af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1395143759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,7 +389,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7320813905699040233, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Name
-      value: MenuButton (1)
+      value: LeaderboardButton
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Pivot.x
@@ -443,7 +425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -498,8 +480,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1699201446}
     - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28683bf3135be174f84f89ee01a08511, type: 3}
+    - target: {fileID: 7320813906339019531, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_text
+      value: Leaderboard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -740,7 +730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -29}
+  m_AnchoredPosition: {x: 0, y: -26.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757339097
@@ -763,7 +753,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -914,7 +904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7320813905699040233, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Name
-      value: MenuButton (3)
+      value: CreditsButton
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Pivot.x
@@ -950,7 +940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1005,8 +995,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1699201446}
     - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 28683bf3135be174f84f89ee01a08511, type: 3}
+    - target: {fileID: 7320813906339019531, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
+      propertyPath: m_text
+      value: 'Credits
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -1135,7 +1135,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7320813905699040233, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Name
-      value: MenuButton
+      value: StartButton
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_Pivot.x
@@ -1171,7 +1171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7320813905699040234, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1225,10 +1225,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1699201446}
-    - target: {fileID: 7320813905699040244, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ae4469500ec2c4391af842b16c7932, type: 3}
