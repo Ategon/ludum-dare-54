@@ -6,10 +6,20 @@ namespace Auboreal {
 
 	public class ShootSpaceShip : MonoBehaviour {
 
+	
+
 		public float spaceShipSpeed;
 		public float spaceShipThurst;
 		public Camera mainCamera;
 		public SpriteRenderer spaceShipRenderer;
+
+		[Header("Shooting")]
+		public Transform bulletSpawnTransform;
+		public Transform bulletsContainer;
+		public ShootBullet bulletPrefab;
+		public float shootRate = 0.5f;
+
+		private float lastShootTime;
 
 		private float m_SpriteWidth;
 		private InputHandler m_InputHandler;
@@ -46,8 +56,17 @@ namespace Auboreal {
 			else {
 				Move(MoveState.Idle);
 			}
+
+			if (m_InputHandler.Input.y > 0 && Time.time - lastShootTime > shootRate) {
+				Shoot();
+				lastShootTime = Time.time;
+			}
 		}
 
+		private void Shoot() {
+			var bullet = Instantiate(bulletPrefab, bulletsContainer);
+			bullet.transform.position = bulletSpawnTransform.position;
+		}
 
 		private void Move(MoveState moveState) {
 			var currentPos = this.transform.position;
