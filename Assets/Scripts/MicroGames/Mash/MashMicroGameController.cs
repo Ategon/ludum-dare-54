@@ -2,13 +2,34 @@ namespace Auboreal {
 
 	public class MashMicroGameController : AMicroGameController {
 
-		protected override void OnGameStarted() {
+		public int check = 0;
+		protected override void OnGameStarted()
+		{
+			RegisterEvents();
 			base.OnGameStarted();
 		}
 
-		protected override void OnGameEnded() {
+		protected override void OnGameEnded()
+		{
+			UnRegisterEvents();
 			base.OnGameEnded();
 		}
+
+		private void RegisterEvents()
+		{
+			EventManager.Input.OnAnyInputPressed += OnAnyInputPressed;
+		}
+
+		private void UnRegisterEvents()
+		{
+			EventManager.Input.OnAnyInputPressed -= OnAnyInputPressed;
+		}
+
+		private void OnAnyInputPressed()
+		{
+			check = 1;
+		}
+
 
 	}
 
