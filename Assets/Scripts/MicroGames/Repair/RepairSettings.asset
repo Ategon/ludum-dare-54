@@ -16,27 +16,27 @@ MonoBehaviour:
     Parts:
     - SpaceShipPartType: 0
       SpaceShipPartPrefab: {fileID: 3217193035991188436, guid: 6926f7c741a4ecc40817d2f2c893fa3d, type: 3}
-      InitialPosition: {x: -0.45, y: 0, z: 0}
+      InitialPosition: {x: -0.48, y: 0, z: 0}
     - SpaceShipPartType: 1
       SpaceShipPartPrefab: {fileID: 2185389914402617510, guid: 418c1ea2763fd5f49858504a7032f193, type: 3}
-      InitialPosition: {x: -0.15, y: 0, z: 0}
+      InitialPosition: {x: -0.16, y: 0, z: 0}
     - SpaceShipPartType: 2
       SpaceShipPartPrefab: {fileID: 3427911455772893843, guid: 57a320ae4c8b27b4880d31cbab543d0f, type: 3}
-      InitialPosition: {x: 0.15, y: 0, z: 0}
+      InitialPosition: {x: 0.16, y: 0, z: 0}
     - SpaceShipPartType: 3
       SpaceShipPartPrefab: {fileID: 2895088982745807655, guid: 68935255b6467db4297ad8b97f0e6043, type: 3}
-      InitialPosition: {x: 0.45, y: 0, z: 0}
+      InitialPosition: {x: 0.48, y: 0, z: 0}
   damagedParts:
     Parts:
     - SpaceShipPartType: 0
       SpaceShipPartPrefab: {fileID: 3217193035991188436, guid: 33c389995a575434795e918c89c91c79, type: 3}
-      InitialPosition: {x: -0.45, y: 0, z: 0}
+      InitialPosition: {x: -0.48, y: 0, z: 0}
     - SpaceShipPartType: 1
       SpaceShipPartPrefab: {fileID: 2185389914402617510, guid: 377575904d0a1db44814001b90c0b83a, type: 3}
-      InitialPosition: {x: -0.15, y: 0, z: 0}
+      InitialPosition: {x: -0.16, y: 0, z: 0}
     - SpaceShipPartType: 2
       SpaceShipPartPrefab: {fileID: 3427911455772893843, guid: af1720f88e6efb74d95489fd4b96bcc0, type: 3}
-      InitialPosition: {x: 0.15, y: 0, z: 0}
+      InitialPosition: {x: 0.16, y: 0, z: 0}
     - SpaceShipPartType: 3
       SpaceShipPartPrefab: {fileID: 2895088982745807655, guid: 64930b5744705d841bf016e87395cdf4, type: 3}
-      InitialPosition: {x: 0.45, y: 0, z: 0}
+      InitialPosition: {x: 0.48, y: 0, z: 0}
