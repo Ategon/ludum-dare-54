@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 868177051457695502, guid: 31c1bede230f2464d8077acb67839f06, type: 3}
       propertyPath: shootSpaceShip
       value: 
-      objectReference: {fileID: 1120026052}
+      objectReference: {fileID: 779193736}
     - target: {fileID: 6293659192462186633, guid: 31c1bede230f2464d8077acb67839f06, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -559,6 +559,8 @@ GameObject:
   m_Component:
   - component: {fileID: 779193733}
   - component: {fileID: 779193734}
+  - component: {fileID: 779193735}
+  - component: {fileID: 779193736}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -634,6 +636,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &779193735
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779193732}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00087628886, y: 0.0002920851}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.08463975, y: 0.16058417}
+  m_EdgeRadius: 0
+--- !u!114 &779193736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779193732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f366b9e6f7bce747b155dc94b68b13b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceShipSpeed: 0.2
+  spaceShipThurst: 0.05
+  mainCamera: {fileID: 1674776021}
+  spaceShipRenderer: {fileID: 779193734}
+  bulletSpawnTransform: {fileID: 1855885834}
+  bulletsContainer: {fileID: 421573991}
+  bulletPrefab: {fileID: 7922934648298839150, guid: 867e105e2e8878e428d491af4daeaa7b, type: 3}
+  shootRate: 0.2
 --- !u!1 &1120026050
 GameObject:
   m_ObjectHideFlags: 0
@@ -643,7 +691,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120026051}
-  - component: {fileID: 1120026052}
   m_Layer: 0
   m_Name: ShootSpaceShip
   m_TagString: Untagged
@@ -667,26 +714,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1120026052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120026050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f366b9e6f7bce747b155dc94b68b13b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spaceShipSpeed: 0.2
-  spaceShipThurst: 0.05
-  mainCamera: {fileID: 1674776021}
-  spaceShipRenderer: {fileID: 779193734}
-  bulletSpawnTransform: {fileID: 1855885834}
-  bulletsContainer: {fileID: 421573991}
-  bulletPrefab: {fileID: 7922934648298839150, guid: 867e105e2e8878e428d491af4daeaa7b, type: 3}
-  shootRate: 0.2
 --- !u!1 &1512176734
 GameObject:
   m_ObjectHideFlags: 0
