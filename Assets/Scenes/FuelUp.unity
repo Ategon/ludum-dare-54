@@ -280,7 +280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2715280501601160432, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2715280501601160434, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
       propertyPath: m_RootOrder
@@ -329,7 +329,7 @@ PrefabInstance:
     - target: {fileID: 2715280501601160435, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 6f70f94b7b673944d90374754105808e, type: 3}
+      objectReference: {fileID: 8300000, guid: e7efc08d81085074389903df38e7cb15, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
@@ -739,6 +739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spacestation: {fileID: 991507327}
   speed: 0.15
+  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
   controller: {fileID: 886585706}
 --- !u!4 &1033224818
 Transform:
