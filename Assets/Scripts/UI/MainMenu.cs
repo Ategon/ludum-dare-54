@@ -6,8 +6,11 @@ namespace Auboreal {
 	using Auboreal;
 
 	public class MainMenu : MonoBehaviour {
+		private bool started = false;
 
 		public void StartGame() {
+			if (started) return;
+			started = true;
 			FindObjectOfType<MicroGameFlowManager>()
 				.StartMicroGame(PersistentData.Instance.GetRandomMicroGame(), isComingFromMenu: true);
 		}

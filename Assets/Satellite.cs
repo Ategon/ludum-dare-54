@@ -12,7 +12,7 @@ namespace Auboreal
 		float timer = 0;
 		bool buffer = false;
 		float cooldownTimer = 0;
-		float cooldown = 0.1f;
+		float cooldown = 0.03f;
 
 		public void OnGameStarted()
 		{
