@@ -1,4 +1,7 @@
-﻿namespace Auboreal {
+﻿using System;
+using System.Collections;
+
+namespace Auboreal {
 
 	using UnityEngine;
 	using UnityEngine.SceneManagement;
@@ -8,50 +11,65 @@
 		private const string MainMenuScene = "MainMenu";
 		private const string IntermediateScene = "_Intermediate";
 
+		private bool m_IsSwitching = false;
+		private readonly float m_TranistionSceneDuration;
 		private PersistentData.MicroGame m_CurrentMicroGame;
+
+		public SceneManagerWrapper(float transitionDuration) {
+			m_TranistionSceneDuration = transitionDuration;
+		}
 
 		public void SwitchScene(PersistentData.MicroGame microGame, LoadSceneMode loadSceneMode,
 			bool isComingFromMenu) {
+			if (m_IsSwitching) {
+				Debug.LogWarning("Scene switch already in progress. Ignoring request.");
+				return;
+			}
+
 			if (microGame == null) {
 				Debug.LogError("Micro Game passed to switch scene is null");
 				return;
 			}
 
-			if (isComingFromMenu && !IsSceneLoaded(IntermediateScene)) {
+			m_IsSwitching = true;
+
+			LoadIntermediateScene(microGame, loadSceneMode, isComingFromMenu);
+		}
+
+		private void LoadIntermediateScene(PersistentData.MicroGame microGame, LoadSceneMode loadSceneMode,
+			bool isComingFromMenu) {
+			if (!IsSceneLoaded(IntermediateScene)) {
 				var loadInter = SceneManager.LoadSceneAsync(IntermediateScene, loadSceneMode);
 
-				loadInter.completed += (_) => {
-					if (IsSceneLoaded(MainMenuScene)) {
-						var unloadOp = SceneManager.UnloadSceneAsync(MainMenuScene);
-
-						if (unloadOp != null) {
-							unloadOp.completed += (_) => LoadIntermediateScene(microGame, loadSceneMode);
-						}
-					}
-					else {
-						LoadIntermediateScene(microGame, loadSceneMode);
-					}
+				loadInter.completed += (op) => {
+					CoroutineHelper.Instance.StartCoroutine(WaitInIntermediate(() => {
+						// After the delay, unload the appropriate scene and proceed to the next micro game.
+						UnloadPreviousScene(isComingFromMenu, () => { LoadNewScene(microGame, loadSceneMode); });
+					}));
 				};
 			}
 			else {
-				var unloadOp = SceneManager.UnloadSceneAsync(m_CurrentMicroGame.sceneName);
-
-				if (unloadOp != null) {
-					unloadOp.completed += (_) => LoadIntermediateScene(microGame, loadSceneMode);
-				}
+				CoroutineHelper.Instance.StartCoroutine(WaitInIntermediate(() => {
+					UnloadPreviousScene(isComingFromMenu, () => { LoadNewScene(microGame, loadSceneMode); });
+				}));
 			}
 		}
 
-		private void LoadIntermediateScene(PersistentData.MicroGame microGame, LoadSceneMode loadSceneMode) {
-			var loadInter = SceneManager.LoadSceneAsync(IntermediateScene, loadSceneMode);
+		private IEnumerator WaitInIntermediate(System.Action onComplete) {
+			yield return new WaitForSeconds(m_TranistionSceneDuration);
+			onComplete();
+		}
 
-			loadInter.completed += (op) => {
-				var unloadOp = SceneManager.UnloadSceneAsync(IntermediateScene);
+		private void UnloadPreviousScene(bool isComingFromMenu, System.Action onComplete) {
+			string sceneToUnload = isComingFromMenu ? MainMenuScene : m_CurrentMicroGame.sceneName;
 
-				if (unloadOp != null) {
-					unloadOp.completed += (_) => LoadNewScene(microGame, loadSceneMode);
-				}
-			};
+			if (IsSceneLoaded(sceneToUnload)) {
+				var unloadOp = SceneManager.UnloadSceneAsync(sceneToUnload);
+				unloadOp.completed += (_) => onComplete();
+			}
+			else {
+				onComplete();
+			}
 		}
 
 		private void LoadNewScene(PersistentData.MicroGame microGame, LoadSceneMode loadSceneMode) {
@@ -63,6 +81,11 @@
 		private void OnMicroGameSceneLoaded(Scene microGameScene, LoadSceneMode sceneMode) {
 			SceneManager.sceneLoaded -= OnMicroGameSceneLoaded;
 
+			// Unload intermediate scene after the new scene has been loaded
+			if (IsSceneLoaded(IntermediateScene)) {
+				SceneManager.UnloadSceneAsync(IntermediateScene);
+			}
+
 			var controller = Object.FindObjectOfType<AMicroGameController>();
 
 			if (controller != null) {
@@ -71,6 +94,8 @@
 			else {
 				Debug.LogError($"No MicroGameController found in scene: {microGameScene.name}");
 			}
+
+			m_IsSwitching = false; // Release the lock
 		}
 
 		private bool IsSceneLoaded(string sceneName) {

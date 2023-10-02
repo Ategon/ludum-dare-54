@@ -8,6 +8,10 @@ namespace Auboreal {
 	using System.Collections;
 
 	public class PersistentData : Singleton<PersistentData> {
+
+		[Header("Settings")]
+		public GlobalSettings mgGlobalSettings;
+
 		[Header("Objects")]
 		public MicroGame[] microgames;
 
@@ -20,8 +24,8 @@ namespace Auboreal {
 		private int m_Score = 0;
 		private int m_Health = 0;
 
+		private SceneManagerWrapper m_SceneManagerWrapper;
 		private readonly List<MicroGame> m_GeneratedMicroGames = new();
-		private readonly SceneManagerWrapper m_SceneManagerWrapper = new SceneManagerWrapper();
 
 		public bool loadingScores = false;
 		public List<ScoreObject> scores;
@@ -44,6 +48,8 @@ namespace Auboreal {
 
 		protected override void Awake() {
 			base.Awake();
+
+			m_SceneManagerWrapper = new SceneManagerWrapper(mgGlobalSettings.intermediateSceneDuration);
 			m_Health = maxHealth;
 			StartCoroutine(Get());
 		}

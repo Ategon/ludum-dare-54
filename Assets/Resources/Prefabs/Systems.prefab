@@ -30,6 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4037753500032459417}
+  - {fileID: 1965808587035763588}
   - {fileID: 6109305645237797643}
   - {fileID: 5701912027206872024}
   - {fileID: 4037753499397986828}
@@ -817,6 +818,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
+      propertyPath: mgGlobalSettings
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e469eb91c073f8458047f0a46317751, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
