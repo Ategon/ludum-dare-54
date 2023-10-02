@@ -7,7 +7,7 @@ namespace Auboreal
 {
     public class LocalPlacement : MonoBehaviour
     {
-        private void Start()
+        private void OnEnable()
         {
             int score = PersistentData.Instance.Score;
             int scoresAbove = PersistentData.Instance.GetLocalScoresAbove(score);
