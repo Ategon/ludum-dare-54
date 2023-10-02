@@ -44,7 +44,7 @@ namespace Auboreal {
                 timer = 0;
             }
 
-            if (timer > 0.25f)
+            if (timer > 0.1f)
             {
                 buffer = false;
             }

@@ -31,7 +31,7 @@ namespace Auboreal
         {
             int best = PersistentData.Instance.GetMax();
             int bestPlacement = PersistentData.Instance.GetGlobalScoresAbove(best);
-            GetComponent<TextMeshProUGUI>().text = $"(Top {bestPlacement * 100/(scores + 1)}%) #{bestPlacement} :Best\n(Top {place*100/(scores+1)}%)  #{place} :Global";
+            GetComponent<TextMeshProUGUI>().text = $"<color=#818181>(Top {bestPlacement * 100/(scores + 1)}%) #{bestPlacement} :Best</color>\n(Top {place*100/(scores+1)}%)  #{place} :Global";
             StartCoroutine(PersistentData.Instance.Upload());
         }
     }

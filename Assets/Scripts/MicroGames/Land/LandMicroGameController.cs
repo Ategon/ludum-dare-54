@@ -18,7 +18,7 @@ namespace Auboreal {
 
 		public void EndGame(bool lost = false)
 		{
-			EndMicroGame(this.MicroGameInstance, lost);
+			EndMicroGame(this.MicroGameInstance);
 		}
 
 	}

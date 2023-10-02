@@ -41,7 +41,7 @@ namespace Auboreal {
 				OnMicroGameSceneSwitch?.Invoke(microGame);
 			}
 
-			public delegate void MicroGameTimerOverDelegate(PersistentData.MicroGame microGame, bool lost = false);
+			public delegate void MicroGameTimerOverDelegate(PersistentData.MicroGame microGame);
 
 			public static event MicroGameTimerOverDelegate OnMicroGameTimerOver;
 

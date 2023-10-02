@@ -48,6 +48,11 @@ namespace Auboreal
 		{
 			cooldownTimer += Time.deltaTime;
 
+			if (m_InputHandler.Input.y != 0)
+			{
+				cooldownTimer = 0;
+			}
+
 			if (cooldownTimer > cooldown && buffer) buffer = false;
 
 			timer += Time.deltaTime;
