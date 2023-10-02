@@ -1,4 +1,5 @@
 using TMPro;
+using DG.Tweening;
 
 namespace Auboreal {
 
@@ -13,7 +14,8 @@ namespace Auboreal {
 
 		protected override void OnGameEnded() {
 			if (count.count != launcher.count) lost = true;
-			text.text = $"Actual: {launcher.count}";
+			text.text = $"You{count.count}\nActual: {launcher.count}";
+			text.DOFade(0, 0.2f).SetDelay(0.8f);
 			base.OnGameEnded();
 		}
 	}
