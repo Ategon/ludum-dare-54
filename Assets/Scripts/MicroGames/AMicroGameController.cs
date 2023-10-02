@@ -32,7 +32,8 @@ namespace Auboreal {
 		}
 
 		public void EndMicroGame(PersistentData.MicroGame microGame) {
-			if (lost) PersistentData.Instance.Health -= 1;
+			
+			if (lost && microGame.gameType != PersistentData.MicroGameType.Count) PersistentData.Instance.Health -= 1;
 			EventManager.Global.OnMicroGameTimerOver -= EndMicroGame;
 			Debug.Log($"MicroGame Ended-{microGame.name}");
 			OnGameEnded();

@@ -18,10 +18,11 @@ namespace Auboreal {
 		protected override void OnGameEnded() {
 			if (count.count == launcher.count)
             {
-				base.lost = false;
+				lost = false;
 			}
 			text.text = $"You{count.count}\nActual: {launcher.count}";
 			text.DOFade(0, 0.2f).SetDelay(0.8f);
+			if (lost) PersistentData.Instance.Health -= 1;
 			base.OnGameEnded();
 		}
 	}
