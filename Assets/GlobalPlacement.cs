@@ -7,13 +7,10 @@ namespace Auboreal
 {
     public class GlobalPlacement : MonoBehaviour
     {
-        void Start()
-        {
-            StartCoroutine(PersistentData.Instance.Get());
-        }
 
         void OnEnable()
         {
+            StartCoroutine(PersistentData.Instance.Get());
             EventManager.Global.OnPlacementLoaded += onPlacementLoaded;
         }
 
