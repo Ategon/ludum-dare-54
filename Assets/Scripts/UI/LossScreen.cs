@@ -13,6 +13,8 @@ namespace Auboreal
 
         public GameObject UI;
 
+        private bool started = false;
+
         void OnEnable()
         {
             EventManager.Gameplay.OnHealthChanged += onHealthChanged;
@@ -56,11 +58,12 @@ namespace Auboreal
             {
                 dead = true;
                 Time.timeScale = 0;
+                started = false;
                 child.SetActive(true);
             }
         }
 
-        private bool started = false;
+        
 
         public void StartGame()
         {
@@ -68,13 +71,6 @@ namespace Auboreal
             started = true;
             FindObjectOfType<MicroGameFlowManager>()
                 .StartMicroGame(PersistentData.Instance.GetRandomMicroGame(), isComingFromMenu: true);
-        }
-
-        public void MainMenu()
-        {
-            if (started) return;
-            started = true;
-            SceneManager.LoadScene("MainMenu");
         }
     }
 }

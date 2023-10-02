@@ -15,6 +15,11 @@ namespace Auboreal {
 
 		public void StartMicroGame(PersistentData.MicroGame newMicroGame, bool isComingFromMenu) {
 			Debug.Log("StartMicroGame");
+			if (isComingFromMenu)
+			{
+				PersistentData.Instance.Health = 3;
+				PersistentData.Instance.Score = 0;
+			}
 			EventManager.Global.MicroGameSceneSwitch(newMicroGame);
 			PersistentData.Instance.SwitchScene(newMicroGame, LoadSceneMode.Additive, isComingFromMenu);
 		}

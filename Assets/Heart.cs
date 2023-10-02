@@ -39,12 +39,12 @@ namespace Auboreal
                 }
             }
 
-            if ((int) oldAmount == index)
-            {
-                if (amount > oldAmount){
+            //if ((int) oldAmount == index)
+            //{
+                if (amount > oldAmount && amount -1 >= index){
                     child.SetActive(true);
                 }
-            }
+            //}
         }
     }
 

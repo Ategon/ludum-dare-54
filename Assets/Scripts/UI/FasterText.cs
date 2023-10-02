@@ -28,7 +28,7 @@ namespace Auboreal
 
         void onScoreChanged(float amount)
         {
-            if (amount % 4 == 0)
+            if (amount % 4 == 0 && amount != 0)
             {
                 text.transform.localPosition = new Vector3(51, 35, 0);
                 text.transform.DOLocalMoveY(-97, 3f).SetEase(Ease.InBack);

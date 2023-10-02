@@ -73,11 +73,7 @@ namespace Auboreal {
 		}
 
 		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode, bool isComingFromMenu) {
-			if (isComingFromMenu)
-            {
-				Health = 3;
-				Score = 0;
-            }
+			
 			m_SceneManagerWrapper.SwitchScene(microGame, loadSceneMode, isComingFromMenu);
 			Score += 1;
 		}

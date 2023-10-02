@@ -2008,7 +2008,7 @@ PrefabInstance:
     - target: {fileID: 5714340483362647538, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: UI
       value: 
-      objectReference: {fileID: 4037753499397986816}
+      objectReference: {fileID: 7928432070152824983}
     - target: {fileID: 6517090171088850415, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
       propertyPath: travellingHealth
       value: 
@@ -2068,6 +2068,11 @@ RectTransform:
 --- !u!224 &4098359935960485025 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2064439748403149336, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
+  m_PrefabInstance: {fileID: 2613796041473537721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7928432070152824983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5350667030630243886, guid: 817a15131333acc4f88bfe5acb7f01a5, type: 3}
   m_PrefabInstance: {fileID: 2613796041473537721}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3389693020127528007
