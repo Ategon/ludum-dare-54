@@ -2,8 +2,11 @@ namespace Auboreal {
 
 	public class ShootMicroGameController : AMicroGameController {
 
+		public ShootSpaceShip shootSpaceShip;
+		
 		protected override void OnGameStarted() {
 			base.OnGameStarted();
+			shootSpaceShip.OnGameStarted();
 		}
 
 		protected override void OnGameEnded() {
