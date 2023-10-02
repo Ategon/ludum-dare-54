@@ -27,6 +27,19 @@ jobs:
           name: Build-StandaloneWindows64
           path: build/StandaloneWindows64
 
+      - name: Install Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          sudo mv butler /usr/local/bin/butler
+
+      - name: Push to itch.io
+        run: |
+          butler push build/StandaloneWindows64 team-auboreal/the-big-crunch:windows
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+
   buildWebGL:
     name: Build for WebGL
     runs-on: ubuntu-latest
@@ -49,7 +62,20 @@ jobs:
         with:
           name: Build-WebGL
           path: build/WebGL
+          
+      - name: Install Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          sudo mv butler /usr/local/bin/butler
 
+      - name: Push to itch.io
+        run: |
+          butler push build/WebGL team-auboreal/the-big-crunch:web
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
+          
   buildLinux:
     name: Build for StandaloneLinux64
     runs-on: ubuntu-latest
@@ -72,6 +98,19 @@ jobs:
         with:
           name: Build-StandaloneLinux64
           path: build/StandaloneLinux64
+          
+      - name: Install Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          sudo mv butler /usr/local/bin/butler
+
+      - name: Push to itch.io
+        run: |
+          butler push build/StandaloneLinux64 team-auboreal/the-big-crunch:linux
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}
 
   buildMac:
     name: Build for StandaloneOSX
@@ -95,3 +134,16 @@ jobs:
         with:
           name: Build-StandaloneOSX
           path: build/StandaloneOSX
+          
+      - name: Install Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          sudo mv butler /usr/local/bin/butler
+
+      - name: Push to itch.io
+        run: |
+          butler push build/StandaloneOSX team-auboreal/the-big-crunch:osx
+        env:
+          BUTLER_API_KEY: ${{ secrets.ITCHIO_API_KEY }}

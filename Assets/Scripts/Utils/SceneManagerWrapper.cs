@@ -23,7 +23,10 @@
 				loadInter.completed += (_) => {
 					if (IsSceneLoaded(MainMenuScene)) {
 						var unloadOp = SceneManager.UnloadSceneAsync(MainMenuScene);
-						unloadOp.completed += (op) => LoadIntermediateScene(microGame, loadSceneMode);
+
+						if (unloadOp != null) {
+							unloadOp.completed += (_) => LoadIntermediateScene(microGame, loadSceneMode);
+						}
 					}
 					else {
 						LoadIntermediateScene(microGame, loadSceneMode);
@@ -32,7 +35,10 @@
 			}
 			else {
 				var unloadOp = SceneManager.UnloadSceneAsync(m_CurrentMicroGame.sceneName);
-				unloadOp.completed += (op) => LoadIntermediateScene(microGame, loadSceneMode);
+
+				if (unloadOp != null) {
+					unloadOp.completed += (_) => LoadIntermediateScene(microGame, loadSceneMode);
+				}
 			}
 		}
 
@@ -41,7 +47,10 @@
 
 			loadInter.completed += (op) => {
 				var unloadOp = SceneManager.UnloadSceneAsync(IntermediateScene);
-				unloadOp.completed += (unloadOp) => LoadNewScene(microGame, loadSceneMode);
+
+				if (unloadOp != null) {
+					unloadOp.completed += (_) => LoadNewScene(microGame, loadSceneMode);
+				}
 			};
 		}
 
