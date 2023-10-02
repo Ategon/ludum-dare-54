@@ -49,13 +49,13 @@ namespace Auboreal {
 				OnMicroGameTimerOver?.Invoke(microGame);
 			}
 
-			public delegate void PlacementLoadedDelegate(int place);
+			public delegate void PlacementLoadedDelegate(int place, int scores);
 
 			public static event PlacementLoadedDelegate OnPlacementLoaded;
 
-			public static void PlacementLoaded(int place)
+			public static void PlacementLoaded(int place, int scores)
 			{
-				OnPlacementLoaded?.Invoke(place);
+				OnPlacementLoaded?.Invoke(place, scores);
 			}
 		}
 

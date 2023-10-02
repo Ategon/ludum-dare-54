@@ -6,6 +6,7 @@ namespace Auboreal {
 		public LandPlatformLocator landPlatformLocator;
 
 		protected override void OnGameStarted() {
+			lost = true;
 			base.OnGameStarted();
 			landPlatformLocator.OnGameStarted();
 			landSpaceship.OnGameStarted();

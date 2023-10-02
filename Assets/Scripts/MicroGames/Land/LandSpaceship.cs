@@ -13,6 +13,8 @@ namespace Auboreal {
 		private Rigidbody2D m_Rigidbody2D;
 		private InputHandler m_InputHandler;
 
+		public LandMicroGameController con;
+
 		public void OnGameStarted() {
 			TryGetComponent(out m_Rigidbody2D);
 			m_InputHandler = FindObjectOfType<InputHandler>();
@@ -40,6 +42,7 @@ namespace Auboreal {
 			if (other.TryGetComponent(out LandPlatform landPlatform)) {
 				m_Landed = true;
 				m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
+				con.lost = false;
 			}
 		}
 

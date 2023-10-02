@@ -13,6 +13,8 @@ namespace Auboreal {
 		private bool m_CanStartFixing = false;
 		private List<GameObject> m_SpawnedSpaceParts = new List<GameObject>();
 
+		List<int> partsFixed = new List<int>();
+
 		public void OnGameStarted() {
 			m_InputHandler = FindObjectOfType<InputHandler>();
 			SpawnParts();
@@ -58,6 +60,9 @@ namespace Auboreal {
 		}
 
 		private void ChangePart(int partId) {
+			if (partsFixed.Contains(partId)) return;
+			partsFixed.Add(partId);
+
 			Destroy(m_SpawnedSpaceParts[partId].gameObject);
 
 			var partSettings = repairSpaceShipSettings.repairedParts.Parts[partId];
@@ -65,6 +70,12 @@ namespace Auboreal {
 			spaceShipPart.transform.localPosition = partSettings.InitialPosition;
 			spaceShipPart.transform.localScale = Vector3.one;
 			m_SpawnedSpaceParts[partId] = spaceShipPart;
+
+			if (partsFixed.Count == 4)
+            {
+				FindObjectOfType<RepairMicroGameController>().lost = false;
+
+			}
 		}
 
 	}

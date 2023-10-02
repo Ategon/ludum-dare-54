@@ -135,7 +135,7 @@ namespace Auboreal {
 			yield return www.SendWebRequest();
 			RootObject root = JsonUtility.FromJson<RootObject>(www.downloadHandler.text.Trim('"').Replace("\\", ""));
 			scores = root.scores;
-			EventManager.Global.PlacementLoaded(GetGlobalScoresAbove(m_Score)+1);
+			EventManager.Global.PlacementLoaded(GetGlobalScoresAbove(m_Score)+1, scores.Count());
 			www.Dispose();
 		}
 

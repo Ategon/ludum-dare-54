@@ -5,6 +5,7 @@ namespace Auboreal {
 		public RepairSpaceShip repairSpaceShip;
 
 		protected override void OnGameStarted() {
+			lost = true;
 			base.OnGameStarted();
 			repairSpaceShip.OnGameStarted();
 		}

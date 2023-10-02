@@ -27,9 +27,9 @@ namespace Auboreal
             EventManager.Global.OnPlacementLoaded -= onPlacementLoaded;
         }
 
-        private void onPlacementLoaded (int place)
+        private void onPlacementLoaded (int place, int scores)
         {
-            GetComponent<TextMeshProUGUI>().text = $"#{place} :Global";
+            GetComponent<TextMeshProUGUI>().text = $"(Top {place*100/(scores+1)}%)  #{place} :Global";
             StartCoroutine(PersistentData.Instance.Upload());
         }
     }
