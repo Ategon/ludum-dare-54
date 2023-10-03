@@ -2218,7 +2218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[8].instructions
-      value: Hold AD to rotate planet. Land at fuel
+      value: Tap AD to rotate station. Land at dock
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[9].instructions
