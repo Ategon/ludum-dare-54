@@ -2181,15 +2181,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[7].instructions
-      value: WASD to repair the ship
+      value: Tap WASD to repair the ship
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[8].instructions
-      value: AD to rotate planet. Land at fuel
+      value: Hold AD to rotate planet. Land at fuel
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[9].instructions
-      value: Tap W/A/S/D when in the target area
+      value: Tap WASD when in the target area
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

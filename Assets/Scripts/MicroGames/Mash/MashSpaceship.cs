@@ -19,7 +19,7 @@ public class MashSpaceship : MonoBehaviour
 
     public void Move()
     {
-        float factor = 1 + (1 - Time.deltaTime) / 4;
+        float factor = 1 + (1 - Time.deltaTime) / 3;
         transform.position = new Vector2(transform.position.x + spaceshipSpeed * factor, transform.position.y);
         transform.rotation = new Quaternion(0, 0, transform.rotation.z + Random.Range(-1f, 1f)/60, transform.rotation.w);
     }

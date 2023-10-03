@@ -35,8 +35,8 @@ namespace Auboreal
                     if (index != 0)
                     {
                         travellingHealth.position = child.transform.position;
-                        travellingHealth.DOMoveY(child.transform.position.y - 160, 1.5f).SetEase(Ease.InBack);
-                        travellingHealth.DOMoveX(child.transform.position.x + 130, 1.5f).SetEase(Ease.InQuad);
+                        travellingHealth.DOMoveY(child.transform.position.y - (float)160 / 160 * Screen.width, 1.5f).SetEase(Ease.InBack);
+                        travellingHealth.DOMoveX(child.transform.position.x + (float)130 / 160 * Screen.width, 1.5f).SetEase(Ease.InQuad);
                     }
                     child.SetActive(false);
                 }

@@ -21,9 +21,10 @@ public class SpaceStation : MonoBehaviour
     {
         if (inputs.Input.x != 0)
             moveDir = inputs.Input.x;
-        
+
         if (rotate)
-            transform.rotation = new Quaternion(0, 0, transform.rotation.z - moveDir * rotationSpeed * Time.deltaTime, transform.rotation.w);
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z - moveDir * rotationSpeed * Time.deltaTime);
+            //transform.rotation = new Quaternion(0, 0, transform.rotation.z - moveDir * rotationSpeed * Time.deltaTime, transform.rotation.w);
         //transform.Rotate(0, 0, transform.rotation.z + moveDir * rotationSpeed * Time.deltaTime);
     }
 }
