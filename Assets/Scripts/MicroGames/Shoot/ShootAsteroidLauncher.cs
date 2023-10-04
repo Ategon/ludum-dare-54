@@ -38,12 +38,12 @@ namespace Auboreal {
 				asteroidSpawnTarget = Random.Range(asteroidSpawnTimeMin, asteroidSpawnTimeMax);
 
 				var offset = Random.Range(asteroidSpawnOffsetMin, asteroidSpawnOffsetMax);
-				var position = new Vector3(offset, 1, 0);
+				var position = new Vector3(offset, 1.4f, 0);
 				var summonedAsteroid = Instantiate(asteroid, position, Quaternion.identity);
 				summonedAsteroid.transform.SetParent(this.transform);
 				m_SpawnedTargets.Add(summonedAsteroid);
 
-				summonedAsteroid.transform.DOMove(new Vector3(offset, -1, 0), 5f);
+				summonedAsteroid.transform.DOMove(new Vector3(offset, -1, 0), 6f);
 			}
 		}
 

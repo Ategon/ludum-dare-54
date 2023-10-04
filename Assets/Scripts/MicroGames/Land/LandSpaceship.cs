@@ -23,7 +23,7 @@ namespace Auboreal {
 
 		public override void OnStart(AMicroGameController mGameController) {
 			base.OnStart(mGameController);
-			randomdir = Random.Range(-0.25f, 0.25f);
+			randomdir = 0;
 			TryGetComponent(out m_Rigidbody2D);
 			m_InputHandler = FindObjectOfType<InputHandler>();
 			m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;

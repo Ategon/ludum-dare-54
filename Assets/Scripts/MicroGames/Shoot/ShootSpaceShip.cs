@@ -15,6 +15,7 @@ namespace Auboreal {
 
 		[Header("Shooting")]
 		public Transform bulletSpawnTransform;
+		public Transform bulletSpawnTransform2;
 
 		public Transform bulletsContainer;
 		public ShootBullet bulletPrefab;
@@ -69,6 +70,8 @@ namespace Auboreal {
 		private void Shoot() {
 			var bullet = Instantiate(bulletPrefab, bulletsContainer);
 			bullet.transform.position = bulletSpawnTransform.position;
+			var bullet2 = Instantiate(bulletPrefab, bulletsContainer);
+			bullet2.transform.position = bulletSpawnTransform2.position;
 		}
 
 		private void Move(MoveState moveState) {
