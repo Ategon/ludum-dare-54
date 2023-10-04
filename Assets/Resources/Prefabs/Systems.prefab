@@ -1161,7 +1161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -139.2}
+  m_AnchoredPosition: {x: 0, y: -139.19998}
   m_SizeDelta: {x: 115.6, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4535385455311315381
@@ -2210,11 +2210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[6].instructions
-      value: AD to land in the target zone
+      value: Use AD to land in the target zone
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[7].instructions
-      value: Tap WASD to repair the ship
+      value: Hit shown buttons to repair the ship
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[8].instructions
@@ -2355,19 +2355,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.7327328
+      value: 0.9015625
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0840538
+      value: 0.048437502
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.4804805
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.76849186
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9214949576554671099, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_Enabled
