@@ -468,6 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repairSpaceShipSettings: {fileID: 11400000, guid: e007e1c308d1cc04a85fc28b8d2a9971, type: 2}
   spaceShipRootTransform: {fileID: 539953086}
+  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
 --- !u!1 &622920697
 GameObject:
   m_ObjectHideFlags: 0

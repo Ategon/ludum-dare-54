@@ -7,11 +7,12 @@ namespace Auboreal {
 		protected override void OnGameStarted() {
 			lost = true;
 			base.OnGameStarted();
-			repairSpaceShip.OnGameStarted();
+			repairSpaceShip.OnStart(this);
 		}
 
 		protected override void OnGameEnded() {
 			base.OnGameEnded();
+			repairSpaceShip.OnEnd();
 		}
 
 	}
