@@ -376,6 +376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[Defend]EntryPoint'
       objectReference: {fileID: 0}
+    - target: {fileID: 7287906956917024929, guid: 8f26b398fb86eb4458f4371dbb6e3d3b, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 983489762}
     - target: {fileID: 8404582936798288529, guid: 8f26b398fb86eb4458f4371dbb6e3d3b, type: 3}
       propertyPath: m_RootOrder
       value: 0
