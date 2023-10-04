@@ -93,7 +93,8 @@ namespace Auboreal {
 
 		private void OnCollisionEnter2D(Collision2D other) {
 			if (other.gameObject.CompareTag("Asteroid")) {
-				m_MicroController.lost = true;
+
+				m_MicroController.OnFailure();
 				var summonedExplosion = Instantiate(explosion, this.transform.position, this.transform.rotation);
 				summonedExplosion.transform.SetParent(this.transform.parent);
 				Destroy(this.gameObject);

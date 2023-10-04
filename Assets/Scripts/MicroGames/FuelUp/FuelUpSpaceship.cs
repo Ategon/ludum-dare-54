@@ -26,13 +26,13 @@ namespace Auboreal
             {
                 collision.transform.GetComponentInParent<SpaceStation>().rotate = false;
                 move = false;
-
+                controller.OnSuccess();
             }
             if (collision.gameObject.name == "Spacestation")
             {
                 collision.transform.GetComponent<SpaceStation>().rotate = false;
                 move = false;
-                controller.lost = true;
+                controller.OnFailure();
                 GameObject summonedExplosion = Instantiate(explosion, transform.position, collision.transform.rotation);
                 summonedExplosion.transform.SetParent(collision.transform);
                 Destroy(gameObject);

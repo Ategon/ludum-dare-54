@@ -97,8 +97,6 @@ namespace Auboreal {
 				// explode
 				dead = true;
 
-				FindObjectOfType<RepairMicroGameController>().lost = true;
-
 				GameObject summonedExplosion3 = Instantiate(explosion, transform.position, transform.rotation);
 				summonedExplosion3.transform.SetParent(transform.parent);
 

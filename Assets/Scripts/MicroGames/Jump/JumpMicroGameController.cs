@@ -44,16 +44,17 @@ namespace Auboreal {
 
 			if (indicator.transform.position.x >= safebar1.position.x && indicator.transform.position.x <= safebar2.position.x)
             {
-				lost = false;
 				DOTween.To(() => mov.dir, x => mov.dir = x, new Vector3(-1, 0, 0), 0.1f);
 				DOTween.To(() => mov.speed, x => mov.speed = x, 1.8f, 0.3f);
 				DOTween.To(() => mov.speed, x => mov.speed = x, 0.1f, 1.0f).SetDelay(0.8f);
 				DOTween.To(() => mov.dir, x => mov.dir = x, new Vector3(1, 0, 0), 1.0f).SetDelay(0.8f);
 				ship.transform.DOLocalMoveX(2, 1f).SetEase(Ease.InBack);
+				OnSuccess();
 			} else
             {
 				GameObject summonedExplosion = Instantiate(explosion, ship.transform.position, ship.transform.rotation);
 				summonedExplosion.transform.SetParent(transform.parent);
+				OnFailure();
 				Destroy(ship);
             }
 		}
