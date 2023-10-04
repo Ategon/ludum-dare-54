@@ -1,6 +1,9 @@
+using UnityEngine;
+using System.Collections;
+
 namespace Auboreal {
 
-	using UnityEngine;
+	
 
 	public abstract class AMicroGameController : MonoBehaviour, IMicroGameFlow {
 
@@ -16,7 +19,7 @@ namespace Auboreal {
 			this.MicroGameInstance = microGameInstance;
 
 			EventManager.Global.OnMicroGameTimerStart += StartMicroGame;
-			EventManager.Global.OnMicroGameTimerOver += EndMicroGame;
+			EventManager.Global.OnMicroGameTimerOver += EndTimer;
 
 			m_MicroGameTimer = new MicroGameTimer(globalSettings.timerDuration, microGameInstance);
 			m_MicroGameTimer.StartTimer();
@@ -32,6 +35,13 @@ namespace Auboreal {
 			OnGameStarted();
 		}
 
+		public void EndTimer(PersistentData.MicroGame microGame)
+		{
+			if (ended) return;
+			ended = true;
+			EndMicroGame(microGame);
+		}
+
 		public void EndMicroGame(PersistentData.MicroGame microGame) {
 			
 			if (lost && microGame.gameType != PersistentData.MicroGameType.Count) PersistentData.Instance.Health -= 1;
@@ -44,14 +54,14 @@ namespace Auboreal {
 			if (ended) return;
 			lost = false;
 			ended = true;
-			EndMicroGame(this.MicroGameInstance);
+			StartCoroutine(endGame());
 		}
 
 		public void OnFailure() {
 			if (ended) return;
 			lost = true;
 			ended = true;
-			EndMicroGame(this.MicroGameInstance);
+			StartCoroutine(endGame());
 		}
 
 		protected virtual void OnGameStarted() { 
@@ -60,6 +70,12 @@ namespace Auboreal {
 
 		protected virtual void OnGameEnded() {
 			EventManager.Global.RequestNextMicroGame();
+		}
+
+		IEnumerator endGame()
+        {
+			yield return new WaitForSeconds(1.0f);
+			EndMicroGame(this.MicroGameInstance);
 		}
 	}
 }

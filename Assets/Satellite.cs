@@ -67,6 +67,7 @@ namespace Auboreal
 			summonedExplosion.transform.SetParent(collision.transform.parent);
 			GameObject summonedExplosion2 = Instantiate(explosion, transform.position, transform.rotation);
 			summonedExplosion2.transform.SetParent(transform.parent);
+			FindObjectOfType<OrbitMicroGameController>().OnFailure();
 
 			Destroy(collision.gameObject);
 			Destroy(gameObject);
