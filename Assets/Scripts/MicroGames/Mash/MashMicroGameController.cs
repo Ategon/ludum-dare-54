@@ -1,43 +1,32 @@
-using UnityEngine;
-
 namespace Auboreal {
 
 	public class MashMicroGameController : AMicroGameController {
 
-		private MashSpaceship mashSpaceship;
+		public MashSpaceship mashSpaceship;
 
-        private void Awake()
-        {
-			mashSpaceship = FindObjectOfType<MashSpaceship>();
-        }
-
-        protected override void OnGameStarted()
-		{
+		protected override void OnGameStarted() {
 			RegisterEvents();
 			base.OnGameStarted();
+			mashSpaceship.OnStart(this);
 		}
 
-		protected override void OnGameEnded()
-		{
+		protected override void OnGameEnded() {
 			UnRegisterEvents();
 			base.OnGameEnded();
+			mashSpaceship.OnEnd();
 		}
 
-		private void RegisterEvents()
-		{
+		private void RegisterEvents() {
 			EventManager.Input.OnAnyInputPressed += OnAnyInputPressed;
 		}
 
-		private void UnRegisterEvents()
-		{
+		private void UnRegisterEvents() {
 			EventManager.Input.OnAnyInputPressed -= OnAnyInputPressed;
 		}
 
-		private void OnAnyInputPressed()
-		{
+		private void OnAnyInputPressed() {
 			mashSpaceship.Move();
 		}
-
 
 	}
 

@@ -39,6 +39,16 @@ namespace Auboreal {
 			OnGameEnded();
 		}
 
+		public void OnSuccess() {
+			lost = true;
+			EndMicroGame(this.MicroGameInstance);
+		}
+
+		public void OnFailure() {
+			lost = false;
+			EndMicroGame(this.MicroGameInstance);
+		}
+
 		protected virtual void OnGameStarted() { 
 			
 		}

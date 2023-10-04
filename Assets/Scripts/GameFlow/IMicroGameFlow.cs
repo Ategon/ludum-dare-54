@@ -5,6 +5,9 @@ namespace Auboreal {
 		void StartMicroGame(PersistentData.MicroGame microGame);
 		void EndMicroGame(PersistentData.MicroGame microGame);
 
+		void OnSuccess();
+		void OnFailure();
+
 	}
 
 }

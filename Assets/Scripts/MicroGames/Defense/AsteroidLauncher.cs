@@ -1,44 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using DG.Tweening;
+namespace Auboreal {
 
-public class AsteroidLauncher : MonoBehaviour
-{
-    [Header("References")]
-    [SerializeField] private GameObject asteroid;
+	using UnityEngine;
+	using DG.Tweening;
 
-    [Header("Attributes")]
-    [SerializeField] private float asteroidSpawnTimeMax = 0.25f;
-    [SerializeField] private float asteroidSpawnTimeMin = 0.15f;
-    [SerializeField] private float asteroidSpawnOffsetMax = 0.5f;
-    [SerializeField] private float asteroidSpawnOffsetMin = -0.5f;
+	public class AsteroidLauncher : MonoBehaviour {
 
-    [Header("Values")]
-    private float asteroidSpawnTimer = 0;
-    private float asteroidSpawnTarget = 0.25f;
+		[Header("References")]
+		[SerializeField]
+		private GameObject asteroid;
 
-    private void FixedUpdate()
-    {
-        asteroidSpawnTimer += Time.deltaTime;
+		[Header("Attributes")]
+		[SerializeField]
+		private float asteroidSpawnTimeMax = 0.25f;
 
-        while (asteroidSpawnTimer > asteroidSpawnTarget)
-        {
-            asteroidSpawnTimer -= asteroidSpawnTarget;
-            asteroidSpawnTarget = Random.Range(asteroidSpawnTimeMin, asteroidSpawnTimeMax);
+		[SerializeField]
+		private float asteroidSpawnTimeMin = 0.15f;
 
-            int side = Random.Range(0, 4);
-            float offset = Random.Range(asteroidSpawnOffsetMin, asteroidSpawnOffsetMax);
-            Vector3 position = new Vector3(
-                    side < 2 ? side == 0 ? 1 : -1 : offset,
-                    side > 1 ? side == 2 ? 1 : -1 : offset,
-                    0
-                );
+		[SerializeField]
+		private float asteroidSpawnOffsetMax = 0.5f;
 
-            GameObject summonedAsteroid = Instantiate(asteroid, position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(position.y, position.x) - 90));
-            summonedAsteroid.transform.SetParent(transform);
+		[SerializeField]
+		private float asteroidSpawnOffsetMin = -0.5f;
 
-            summonedAsteroid.transform.DOMove(new Vector3(0, 0, 0), 5f);
-        }
-    }
+		[Header("Values")]
+		private float asteroidSpawnTimer = 0;
+
+		private float asteroidSpawnTarget = 0.25f;
+
+		private void FixedUpdate() {
+			asteroidSpawnTimer += Time.deltaTime;
+
+			while (asteroidSpawnTimer > asteroidSpawnTarget) {
+				asteroidSpawnTimer -= asteroidSpawnTarget;
+				asteroidSpawnTarget = Random.Range(asteroidSpawnTimeMin, asteroidSpawnTimeMax);
+
+				var side = Random.Range(0, 4);
+				var offset = Random.Range(asteroidSpawnOffsetMin, asteroidSpawnOffsetMax);
+
+				var position = new Vector3(
+					side < 2 ? side == 0 ? 1 : -1 : offset,
+					side > 1 ? side == 2 ? 1 : -1 : offset,
+					0
+				);
+
+				var summonedAsteroid = Instantiate(asteroid, position,
+					Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(position.y, position.x) - 90));
+				summonedAsteroid.transform.SetParent(transform);
+
+				summonedAsteroid.transform.DOMove(new Vector3(0, 0, 0), 5f);
+			}
+		}
+
+	}
+
 }

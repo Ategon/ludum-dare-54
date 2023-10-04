@@ -1,14 +1,19 @@
-using UnityEngine;
+namespace Auboreal {
 
-public class ShieldCollider : MonoBehaviour
-{
-    [Header("References")]
-    [SerializeField] private GameObject explosion;
+	using UnityEngine;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject summonedExplosion = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
-        summonedExplosion.transform.SetParent(collision.transform.parent);
-        Destroy(collision.gameObject);
-    }
+	public class ShieldCollider : MonoBehaviour {
+
+		[Header("References")]
+		[SerializeField]
+		private GameObject explosion;
+
+		private void OnCollisionEnter2D(Collision2D collision) {
+			var summonedExplosion = Instantiate(explosion, collision.transform.position, collision.transform.rotation);
+			summonedExplosion.transform.SetParent(collision.transform.parent);
+			Destroy(collision.gameObject);
+		}
+
+	}
+
 }

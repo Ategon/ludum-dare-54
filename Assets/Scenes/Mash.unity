@@ -556,6 +556,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1573856028953411067, guid: c39fdd3adc4390947a173c45167d9ed8, type: 3}
+      propertyPath: mashSpaceship
+      value: 
+      objectReference: {fileID: 238391288}
     - target: {fileID: 6097036317852645415, guid: c39fdd3adc4390947a173c45167d9ed8, type: 3}
       propertyPath: m_Name
       value: '[Mash]EntryPoint'
