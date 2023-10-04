@@ -13,15 +13,19 @@ namespace Auboreal {
 			EventManager.Global.OnRequestNextMicroGame -= OnRequestMicroGame;
 		}
 
-		public void StartMicroGame(PersistentData.MicroGame newMicroGame, bool isComingFromMenu) {
+		public void StartMicroGame(PersistentData.MicroGame newMicroGame, bool isComingFromMenu, bool isComingFromRestart = false) {
 			Debug.Log("StartMicroGame");
-			if (isComingFromMenu)
+			if (isComingFromMenu || isComingFromRestart)
 			{
 				PersistentData.Instance.Health = 3;
 				PersistentData.Instance.Score = 0;
 			}
-			EventManager.Global.MicroGameSceneSwitch(newMicroGame);
-			PersistentData.Instance.SwitchScene(newMicroGame, LoadSceneMode.Additive, isComingFromMenu);
+			
+			if (!isComingFromRestart)
+			{
+				EventManager.Global.MicroGameSceneSwitch(newMicroGame);
+				PersistentData.Instance.SwitchScene(newMicroGame, LoadSceneMode.Additive, isComingFromMenu);
+			}
 		}
 
 		private void OnRequestMicroGame() {

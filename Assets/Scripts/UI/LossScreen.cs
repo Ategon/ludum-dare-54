@@ -70,7 +70,7 @@ namespace Auboreal
             if (started) return;
             started = true;
             FindObjectOfType<MicroGameFlowManager>()
-                .StartMicroGame(PersistentData.Instance.GetRandomMicroGame(), isComingFromMenu: true);
+                .StartMicroGame(PersistentData.Instance.GetRandomMicroGame(), isComingFromMenu: false, isComingFromRestart: true);
         }
     }
 }
