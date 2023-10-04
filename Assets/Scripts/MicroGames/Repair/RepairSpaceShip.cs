@@ -78,16 +78,22 @@ namespace Auboreal {
 				ChangePart(2);
 			}
 
-			if (m_InputHandler.Input.x != 0)
+			if (m_InputHandler.Input.x < 0)
 			{
 				bufferTimerLeft = 0;
+				
+			} else if (m_InputHandler.Input.x > 0)
+			{
 				bufferTimerRight = 0;
+
 			}
 
-			if (m_InputHandler.Input.y != 0)
+			if (m_InputHandler.Input.y < 0)
+			{
+				bufferTimerDown = 0;
+			} else if (m_InputHandler.Input.y > 0)
 			{
 				bufferTimerUp = 0;
-				bufferTimerDown = 0;
 			}
 		}
 

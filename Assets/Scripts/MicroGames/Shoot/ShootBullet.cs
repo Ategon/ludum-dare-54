@@ -13,8 +13,15 @@ namespace Auboreal {
 
 		private void OnTriggerEnter2D(Collider2D other) {
 			if (other.gameObject.CompareTag("Asteroid")) {
-				Destroy(other.gameObject);
-				Destroy(this.gameObject);
+				if (transform.position.y >= 0.9)
+                {
+					Destroy(this.gameObject);
+				}
+				else
+                {
+					Destroy(other.gameObject);
+					Destroy(this.gameObject);
+				}
 			}
 		}
 
