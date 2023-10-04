@@ -6,6 +6,8 @@ namespace Auboreal {
 		public GameObject coffee;
 		public GameObject explosion;
 
+		public float timer;
+
 		protected override void OnGameStarted() {
 			RegisterEvents();
 			base.OnGameStarted();
@@ -25,17 +27,26 @@ namespace Auboreal {
 		}
 
 		private void OnAnyInputPressed() {
-			if (!lost)
+			if (!ended)
             {
-				lost = true;
-
 				GameObject summonedExplosion3 = Instantiate(explosion, coffee.transform.position, coffee.transform.rotation);
 				summonedExplosion3.transform.SetParent(transform.parent);
+
+				OnFailure();
 
 				Destroy(coffee);
 			}
 		}
 
+		private void FixedUpdate()
+        {
+			timer += Time.deltaTime;
+
+			if (timer >= 2)
+            {
+				OnSuccess();
+			}
+        }
 	}
 
 }
