@@ -40,12 +40,12 @@ namespace Auboreal {
 		}
 
 		public void OnSuccess() {
-			lost = true;
+			lost = false;
 			EndMicroGame(this.MicroGameInstance);
 		}
 
 		public void OnFailure() {
-			lost = false;
+			lost = true;
 			EndMicroGame(this.MicroGameInstance);
 		}
 
