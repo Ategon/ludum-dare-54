@@ -18,8 +18,12 @@ namespace Auboreal {
 
 		public LandMicroGameController con;
 
+		bool pressed = false;
+		float randomdir = 0;
+
 		public override void OnStart(AMicroGameController mGameController) {
 			base.OnStart(mGameController);
+			randomdir = Random.Range(-1, 1);
 			TryGetComponent(out m_Rigidbody2D);
 			m_InputHandler = FindObjectOfType<InputHandler>();
 			m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
@@ -34,11 +38,17 @@ namespace Auboreal {
 
 			if (m_InputHandler.Input.x > 0) {
 				this.transform.DOMoveX(initialPos.x + thrustAmount, thrustDuration, false);
+				if (!pressed) pressed = true;
 			}
 			else if (m_InputHandler.Input.x < 0) {
 				{
 					this.transform.DOMoveX(initialPos.x - thrustAmount, thrustDuration, false);
+					if (!pressed) pressed = true;
 				}
+			}
+			else if (!pressed)
+            {
+				this.transform.DOMoveX(initialPos.x + thrustAmount * randomdir, thrustDuration, false);
 			}
 		}
 

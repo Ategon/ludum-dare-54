@@ -32,6 +32,11 @@ namespace Auboreal {
 
 			this.transform.rotation = new Quaternion(0, 0, transform.rotation.z + Random.Range(-1f, 1f) / 60,
 				this.transform.rotation.w);
+
+			if (transform.position.x > 1)
+            {
+				this.microGameController.OnSuccess();
+			}
 		}
 
 		private void OnTriggerEnter2D(Collider2D collision) {
