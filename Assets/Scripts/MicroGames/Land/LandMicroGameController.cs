@@ -8,16 +8,17 @@ namespace Auboreal {
 		protected override void OnGameStarted() {
 			lost = true;
 			base.OnGameStarted();
-			landPlatformLocator.OnGameStarted();
-			landSpaceship.OnGameStarted();
+			landPlatformLocator.OnStart(this);
+			landSpaceship.OnStart(this);
 		}
 
 		protected override void OnGameEnded() {
 			base.OnGameEnded();
+			landPlatformLocator.OnEnd();
+			landSpaceship.OnEnd();
 		}
 
-		public void EndGame(bool lost = false)
-		{
+		public void EndGame(bool lost = false) {
 			EndMicroGame(this.MicroGameInstance);
 		}
 

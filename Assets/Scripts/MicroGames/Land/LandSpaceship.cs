@@ -3,9 +3,10 @@ namespace Auboreal {
 	using DG.Tweening;
 	using UnityEngine;
 
-	public class LandSpaceship : MonoBehaviour {
+	public class LandSpaceship : AMicroGameEntity {
 
-		[SerializeField] private GameObject explosion;
+		[SerializeField]
+		private GameObject explosion;
 
 		public float thrustAmount;
 		public float thrustDuration;
@@ -17,7 +18,8 @@ namespace Auboreal {
 
 		public LandMicroGameController con;
 
-		public void OnGameStarted() {
+		public override void OnStart(AMicroGameController mGameController) {
+			base.OnStart(mGameController);
 			TryGetComponent(out m_Rigidbody2D);
 			m_InputHandler = FindObjectOfType<InputHandler>();
 			m_Rigidbody2D.bodyType = RigidbodyType2D.Dynamic;
@@ -44,14 +46,18 @@ namespace Auboreal {
 			if (other.TryGetComponent(out LandPlatform landPlatform)) {
 				m_Landed = true;
 				m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
-				con.lost = false;
-			}else if (other.gameObject.CompareTag("Land")) {
+				this.microGameController.OnSuccess();
+			}
+			else if (other.gameObject.CompareTag("Land")) {
 				con.lost = true;
 				var summonedExplosion = Instantiate(explosion, this.transform.position, this.transform.rotation);
 				summonedExplosion.transform.SetParent(this.transform.parent);
 				Destroy(this.gameObject);
+				this.microGameController.OnFailure();
 			}
 		}
+
+		public override void OnEnd() { }
 
 	}
 
