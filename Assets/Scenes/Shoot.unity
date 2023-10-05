@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 2715280501601160435, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: b322ef30a33f7ec4f9017da5af26c258, type: 3}
+      objectReference: {fileID: 8300000, guid: f42a17c835e64d34cb5c417b594da131, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroid: {fileID: 8663921740576478544, guid: 991d6d00441cdb341b1e8909f330e426, type: 3}
   asteroidSpawnTimeMax: 0.9
-  asteroidSpawnTimeMin: 0.6
+  asteroidSpawnTimeMin: 0.8
   asteroidSpawnOffsetMax: 0.5
   asteroidSpawnOffsetMin: -0.5
 --- !u!4 &1512176736

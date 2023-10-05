@@ -59,6 +59,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+--- !u!82 &5125624845314202778 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 525140362897071148, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 4641043818277077174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6782254822032397330 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2195262997927449764, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 4641043818277077174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7675433640379022174 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3093079013681429480, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
@@ -77,3 +87,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalSettings: {fileID: 11400000, guid: 7e469eb91c073f8458047f0a46317751, type: 2}
+  lost: 0
+  ended: 0
+  successSound: {fileID: 5125624845314202778}
+  failSound: {fileID: 6782254822032397330}
+  shootSpaceShip: {fileID: 0}
+  shootDeadZone: {fileID: 0}

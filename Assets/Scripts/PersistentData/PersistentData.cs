@@ -28,7 +28,7 @@ namespace Auboreal {
 
 		private SceneManagerWrapper m_SceneManagerWrapper;
 		private readonly List<MicroGame> m_GeneratedMicroGames = new();
-		private readonly Dictionary<MicroGameType, MicroGamePersistentState> m_MicroGamesStates = new();
+		public Dictionary<MicroGameType, MicroGamePersistentState> m_MicroGamesStates = new();
 
 		public bool loadingScores = false;
 		public List<ScoreObject> scores;

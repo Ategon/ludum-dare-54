@@ -28,9 +28,18 @@ namespace Auboreal
 
         void onMicrogameSwitched(PersistentData.MicroGame microGame)
         {
-            text.text = microGame.instructions;
-            text.DOFade(1, 0.5f);
-            text.DOFade(0, 1.0f).SetDelay(3.0f);
+            if (PersistentData.Instance.m_MicroGamesStates[microGame.gameType].GameState != MicroGamePersistentState.MicroGameState.FirstRun)
+            {
+                text.text = microGame.instructions;
+                text.DOFade(1, 0.5f);
+                text.DOFade(0, 1.0f).SetDelay(3.0f);
+            }
+            else
+            {
+                text.text = microGame.instructions;
+                text.DOFade(1, 0.5f);
+                text.DOFade(0, 1.0f).SetDelay(5.5f);
+            }
         }
     }
 }

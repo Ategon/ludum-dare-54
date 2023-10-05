@@ -13,9 +13,11 @@ namespace Auboreal {
 
 		private bool m_IsSwitching = false;
 		private readonly float m_TranistionSceneDuration;
+		private readonly float m_TranistionSceneDuration2;
 		private PersistentData.MicroGame m_CurrentMicroGame;
 
-		public SceneManagerWrapper(float transitionDuration) {
+		public SceneManagerWrapper(float transitionDuration, float duration2 = 6) {
+			m_TranistionSceneDuration2 = duration2;
 			m_TranistionSceneDuration = transitionDuration;
 		}
 
@@ -42,21 +44,31 @@ namespace Auboreal {
 				var loadInter = SceneManager.LoadSceneAsync(IntermediateScene, loadSceneMode);
 
 				loadInter.completed += (op) => {
-					CoroutineHelper.Instance.StartCoroutine(WaitInIntermediate(() => {
+					Debug.Log(PersistentData.Instance.m_MicroGamesStates[microGame.gameType].GameState);
+					if (PersistentData.Instance.m_MicroGamesStates[microGame.gameType].GameState != MicroGamePersistentState.MicroGameState.FirstRun) GameObject.FindObjectOfType<Wipe>().second = true; 
+					GameObject.FindObjectOfType<Wipe>().Play();
+					CoroutineHelper.Instance.StartCoroutine(WaitInIntermediate(microGame, () => {
 						// After the delay, unload the appropriate scene and proceed to the next micro game.
 						UnloadPreviousScene(isComingFromMenu, () => { LoadNewScene(microGame, loadSceneMode); });
 					}));
 				};
 			}
 			else {
-				CoroutineHelper.Instance.StartCoroutine(WaitInIntermediate(() => {
+				CoroutineHelper.Instance.StartCoroutine(WaitInIntermediate(microGame, () => {
 					UnloadPreviousScene(isComingFromMenu, () => { LoadNewScene(microGame, loadSceneMode); });
 				}));
 			}
 		}
 
-		private IEnumerator WaitInIntermediate(System.Action onComplete) {
-			yield return new WaitForSeconds(m_TranistionSceneDuration);
+		private IEnumerator WaitInIntermediate(PersistentData.MicroGame microGame, System.Action onComplete) {
+			if (PersistentData.Instance.m_MicroGamesStates[microGame.gameType].GameState == MicroGamePersistentState.MicroGameState.FirstRun)
+            {
+				yield return new WaitForSeconds(m_TranistionSceneDuration2);
+			} else
+            {
+				yield return new WaitForSeconds(m_TranistionSceneDuration);
+			}
+			
 			onComplete();
 		}
 

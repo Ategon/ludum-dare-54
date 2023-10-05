@@ -6,9 +6,10 @@ namespace Auboreal {
 	public class ShootBullet : MonoBehaviour {
 
 		public float bulletSpeed = 0.5f;
+		public GameObject explosion;
 
-		private void Update() {
-			this.transform.DOMoveY(transform.position.y + bulletSpeed, 2f);
+		private void FixedUpdate() {
+			this.transform.position = new Vector3(transform.position.x, transform.position.y + bulletSpeed * Time.deltaTime, transform.position.z);
 		}
 
 		private void OnTriggerEnter2D(Collider2D other) {
@@ -19,6 +20,8 @@ namespace Auboreal {
 				}
 				else
                 {
+					var summonedExplosion = Instantiate(explosion, other.transform.position, other.transform.rotation);
+					summonedExplosion.transform.SetParent(other.transform.parent);
 					Destroy(other.gameObject);
 					Destroy(this.gameObject);
 				}

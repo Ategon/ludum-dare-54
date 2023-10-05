@@ -300,12 +300,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193009418}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0017205051, y: -0.18229997, z: 0}
+  m_LocalPosition: {x: -0.00087949494, y: -0.06399997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1576265764}
-  m_Father: {fileID: 774549831}
+  m_Father: {fileID: 1961960406}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &193009420
@@ -334,7 +334,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.031703055, y: 0.063669235}
+  m_Offset: {x: 0.031703055, y: 0.01705581}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -345,7 +345,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.63079965, y: 0.13299447}
+  m_Size: {x: 0.63079965, y: 0.22622132}
   m_EdgeRadius: 0
 --- !u!1 &309035389
 GameObject:
@@ -562,7 +562,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 193009419}
   - {fileID: 1961960406}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -642,7 +641,7 @@ PrefabInstance:
     - target: {fileID: 2715280501601160435, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 3a0308bf6b5f39946bd0bac7e723812e, type: 3}
+      objectReference: {fileID: 8300000, guid: 3455d7d57a995f44bbaad97b8546a974, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
@@ -1206,7 +1205,8 @@ Transform:
   m_LocalPosition: {x: 0.0026, y: -0.1183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 193009419}
   m_Father: {fileID: 774549831}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

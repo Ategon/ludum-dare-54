@@ -15,6 +15,9 @@ namespace Auboreal {
 		public bool lost = false;
 		public bool ended = false;
 
+		public AudioSource successSound;
+		public AudioSource failSound;
+
 		public virtual void Initialize(PersistentData.MicroGame microGameInstance) {
 			this.MicroGameInstance = microGameInstance;
 
@@ -43,8 +46,16 @@ namespace Auboreal {
 		}
 
 		public void EndMicroGame(PersistentData.MicroGame microGame) {
-			
-			if (lost && microGame.gameType != PersistentData.MicroGameType.Count) PersistentData.Instance.Health -= 1;
+
+			if (lost && microGame.gameType != PersistentData.MicroGameType.Count)
+            {
+				PersistentData.Instance.Health -= 1;
+				failSound.Play();
+			}
+			else
+            {
+				successSound.Play();
+			}
 			EventManager.Global.OnMicroGameTimerOver -= EndMicroGame;
 			// Debug.Log($"MicroGame Ended-{microGame.name}");
 			OnGameEnded();

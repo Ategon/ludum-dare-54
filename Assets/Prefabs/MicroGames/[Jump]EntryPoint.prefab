@@ -54,8 +54,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3093079013681429480, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
       propertyPath: m_Name
-      value: EntryPoint
+      value: '[Jump]EntryPoint'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+--- !u!82 &5447312248335388881 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2195262997927449764, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 6192336994835367029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5955506727014045785 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 525140362897071148, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 6192336994835367029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9152241647237365661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3093079013681429480, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 6192336994835367029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1773250481894406956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9152241647237365661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f0a03ed4b421b4c9c9d6b61c5c8730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalSettings: {fileID: 11400000, guid: 7e469eb91c073f8458047f0a46317751, type: 2}
+  lost: 0
+  ended: 0
+  successSound: {fileID: 5955506727014045785}
+  failSound: {fileID: 5447312248335388881}
+  position: 0
+  safebar1: {fileID: 0}
+  safebar2: {fileID: 0}
+  indicator: {fileID: 0}
+  ship: {fileID: 0}
+  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
+  mov: {fileID: 0}

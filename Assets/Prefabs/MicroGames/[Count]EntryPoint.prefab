@@ -59,6 +59,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+--- !u!82 &5213875564043243171 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2195262997927449764, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 6209421700751514119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5865340672354436651 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 525140362897071148, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
+  m_PrefabInstance: {fileID: 6209421700751514119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8989359519353479663 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3093079013681429480, guid: b7a45730a2c1ceb4f838bde3ef5fc09b, type: 3}
@@ -77,3 +87,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   globalSettings: {fileID: 11400000, guid: 7e469eb91c073f8458047f0a46317751, type: 2}
+  lost: 0
+  ended: 0
+  successSound: {fileID: 5865340672354436651}
+  failSound: {fileID: 5213875564043243171}
+  count: {fileID: 0}
+  launcher: {fileID: 0}
+  text: {fileID: 0}

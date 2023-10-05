@@ -29,8 +29,9 @@ namespace Auboreal
         {
             if (amount < oldAmount && amount != 0)
             {
-                child.DOFade(1, 0.5f);
-                child.DOFade(0, 0.5f).SetDelay(1.5f);
+                //fail.Play();
+                //child.DOFade(1, 0.5f);
+                //child.DOFade(0, 0.5f).SetDelay(1.5f);
             }
         }
     }

@@ -694,7 +694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press W/A/S/D to Restart
+  m_text: Press W to Restart
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5df9bb9d2bba9044e865d63de0ab118e, type: 2}
   m_sharedMaterial: {fileID: -1230029380298396001, guid: 5df9bb9d2bba9044e865d63de0ab118e, type: 2}
@@ -1345,12 +1345,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3815729049871396798}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efb0196ba6baecd4c90add2d93ca10bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.75
+  amplitude: 0.25
   speed: 6
 --- !u!114 &4084629702123582129
 MonoBehaviour:
@@ -2318,39 +2318,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[1].instructions
-      value: WASD to block asteroids
+      value: WASD   to   block   asteroids
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[2].instructions
-      value: WS to move between rows. Avoid asteroids
+      value: WS   to   move   between   rows.   Avoid   asteroids
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[3].instructions
-      value: Rapidly hit WASD to avoid the sun
+      value: Rapidly   hit   WASD   to   avoid   the   sun
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[4].instructions
-      value: 'AD to move, W to shoot asteroids '
+      value: 'AD   to   move,   W   to   shoot   asteroids '
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[5].instructions
-      value: D to count up the asteroids that go by
+      value: D   to   count   up   the   asteroids   that   go   by
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[6].instructions
-      value: Use AD to land in the target zone
+      value: Use   AD   to   land   in   the   target   zone
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[7].instructions
-      value: Hit shown buttons to repair the ship
+      value: Hit   shown   buttons   to   repair   the   ship
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[8].instructions
-      value: Tap AD to rotate station. Land at dock
+      value: Tap   AD   to   rotate   station.   Land   at   dock
       objectReference: {fileID: 0}
     - target: {fileID: 8917697676848564045, guid: e1b601ad354c0084cb95d5549818b9e4, type: 3}
       propertyPath: microgames.Array.data[9].instructions
-      value: Tap WASD when in the target area
+      value: Tap   W   when   in   the   target   area
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -2483,19 +2483,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.8390625
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.048437502
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3808235419643200659, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9214949576554671099, guid: c319707e2fa85774d82a5b72d126b469, type: 3}
       propertyPath: m_Enabled

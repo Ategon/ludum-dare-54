@@ -539,6 +539,26 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1773250481894406956, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
+      propertyPath: mov
+      value: 
+      objectReference: {fileID: 572709481}
+    - target: {fileID: 1773250481894406956, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 639317665}
+    - target: {fileID: 1773250481894406956, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
+      propertyPath: safebar1
+      value: 
+      objectReference: {fileID: 848607946}
+    - target: {fileID: 1773250481894406956, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
+      propertyPath: safebar2
+      value: 
+      objectReference: {fileID: 862622408}
+    - target: {fileID: 1773250481894406956, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
+      propertyPath: indicator
+      value: 
+      objectReference: {fileID: 1888708464}
     - target: {fileID: 4814423609958538314, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -590,32 +610,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
---- !u!1 &838555528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9152241647237365661, guid: 5568cd9e639866a4e894aece94f52804, type: 3}
-  m_PrefabInstance: {fileID: 838555527}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &838555529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838555528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f0a03ed4b421b4c9c9d6b61c5c8730, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  globalSettings: {fileID: 11400000, guid: 7e469eb91c073f8458047f0a46317751, type: 2}
-  lost: 0
-  position: 0
-  safebar1: {fileID: 848607946}
-  safebar2: {fileID: 862622408}
-  indicator: {fileID: 1888708464}
-  ship: {fileID: 639317665}
-  explosion: {fileID: 2664885540248397826, guid: 5b66984ea1af6544daf9b46e65631e49, type: 3}
-  mov: {fileID: 572709481}
 --- !u!1 &848607944
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +841,7 @@ PrefabInstance:
     - target: {fileID: 2715280501601160435, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 8348f6a59abc3094b86a98f1e109d870, type: 3}
+      objectReference: {fileID: 8300000, guid: 9ebfd74a01554c14daa7dc53992e98f1, type: 3}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1f1cf555a28c9498248aeba06b1caa, type: 3}
