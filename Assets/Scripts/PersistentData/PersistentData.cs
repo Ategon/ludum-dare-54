@@ -28,6 +28,7 @@ namespace Auboreal {
 
 		private SceneManagerWrapper m_SceneManagerWrapper;
 		private readonly List<MicroGame> m_GeneratedMicroGames = new();
+		private readonly Dictionary<MicroGameType, MicroGamePersistentState> m_MicroGamesStates = new();
 
 		public bool loadingScores = false;
 		public List<ScoreObject> scores;
@@ -49,14 +50,11 @@ namespace Auboreal {
 			}
 		}
 
-		public int GetLocalScoresAbove(int score)
-        {
+		public int GetLocalScoresAbove(int score) {
 			return localScores.Where(s => s > score).Count();
-
 		}
 
-		public int GetGlobalScoresAbove(int score)
-        {
+		public int GetGlobalScoresAbove(int score) {
 			return scores.Where(s => s.score > score).Count();
 		}
 
@@ -73,7 +71,6 @@ namespace Auboreal {
 		}
 
 		public void SwitchScene(MicroGame microGame, LoadSceneMode loadSceneMode, bool isComingFromMenu) {
-			
 			m_SceneManagerWrapper.SwitchScene(microGame, loadSceneMode, isComingFromMenu);
 			Score += 1;
 		}
@@ -106,6 +103,7 @@ namespace Auboreal {
 			Repair = 7,
 			FuelUp = 8,
 			Jump = 9
+
 		}
 
 		public MicroGame GetRandomMicroGame() {
@@ -118,48 +116,65 @@ namespace Auboreal {
 			}
 
 			var microGameIndex = UnityEngine.Random.Range(0, toRandomFromMicroGames.Length);
-			m_GeneratedMicroGames.Add(toRandomFromMicroGames[microGameIndex]);
-			return toRandomFromMicroGames[microGameIndex];
+			var microGame = toRandomFromMicroGames[microGameIndex];
+
+			CheckMircoGameState(microGame);
+
+			m_GeneratedMicroGames.Add(microGame);
+			return microGame;
+		}
+
+		private void CheckMircoGameState(MicroGame mGame) {
+			if (m_MicroGamesStates.TryGetValue(mGame.gameType, out var state)) {
+				m_MicroGamesStates[mGame.gameType].ChangeMicroGameState(MicroGamePersistentState.MicroGameState.NthRun);
+			}
+			else {
+				m_MicroGamesStates.Add(mGame.gameType, new MicroGamePersistentState(mGame));
+			}
+
+			Debug.Log($"MicroGame: [{mGame.gameType}] - State: {m_MicroGamesStates[mGame.gameType].GameState}");
 		}
 
 		[System.Serializable]
-		public class RootObject
-		{
+		public class RootObject {
+
 			public List<ScoreObject> scores;
+
 		}
 
 		[System.Serializable]
-		public class ScoreObject
-		{
+		public class ScoreObject {
+
 			public int id;
 			public int score;
+
 		}
 
-		public IEnumerator Get()
-		{
+		public IEnumerator Get() {
 			UnityWebRequest www = UnityWebRequest.Get("https://pangora.social/api/leaderboard");
 			yield return www.SendWebRequest();
 			RootObject root = JsonUtility.FromJson<RootObject>(www.downloadHandler.text.Trim('"').Replace("\\", ""));
 			scores = root.scores;
-			EventManager.Global.PlacementLoaded(GetGlobalScoresAbove(m_Score)+1, scores.Count());
+			EventManager.Global.PlacementLoaded(GetGlobalScoresAbove(m_Score) + 1, scores.Count());
 			www.Dispose();
 		}
 
-		public IEnumerator Upload()
-        {
-			UnityWebRequest www = UnityWebRequest.Post("https://pangora.social/api/leaderboard", System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{{\"score\": {m_Score}}}")));
+		public IEnumerator Upload() {
+			UnityWebRequest www = UnityWebRequest.Post("https://pangora.social/api/leaderboard",
+				System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{{\"score\": {m_Score}}}")));
 			www.SetRequestHeader("Content-Type", "application/json");
 			yield return www.SendWebRequest();
-			if (www.result != UnityWebRequest.Result.Success)
-			{
+
+			if (www.result != UnityWebRequest.Result.Success) {
 				Debug.Log(www.error);
 			}
-			else
-			{
+			else {
 				Debug.Log("Form upload complete!");
 			}
+
 			www.Dispose();
 		}
 
 	}
+
 }

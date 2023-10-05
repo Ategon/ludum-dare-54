@@ -14,7 +14,6 @@ namespace Auboreal {
 		}
 
 		public void StartMicroGame(PersistentData.MicroGame newMicroGame, bool isComingFromMenu, bool isComingFromRestart = false) {
-			Debug.Log("StartMicroGame");
 			if (isComingFromMenu || isComingFromRestart)
 			{
 				PersistentData.Instance.Health = 3;
@@ -29,7 +28,6 @@ namespace Auboreal {
 		}
 
 		private void OnRequestMicroGame() {
-			Debug.Log("OnRequestMicroGame");
 			StartMicroGame(PersistentData.Instance.GetRandomMicroGame(), false);
 		}
 
